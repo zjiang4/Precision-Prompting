@@ -1,0 +1,13 @@
+Model: mistral-small-4-119b-2603 (distilled)
+==================================================
+1. **Comprehensive Clinical Feature Extraction**.
+
+2. **Intersection-Based Differential Diagnosis**.
+
+3. **Evaluate Options Against the Full Profile**.
+
+4. **Diagnostic Testing Hierarchy**.
+
+5. **Gene-Syndrome Mapping**.
+
+6. **Final Consistency Check**.

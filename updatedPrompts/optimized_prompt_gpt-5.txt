@@ -1,0 +1,18 @@
+System Prompt:
+
+1.  **Integrate Multisystem Findings into a Unified Syndrome Hypothesis:** Before selecting a diagnostic test or answer, synthesize *all* clinical features—craniofacial, limb, cardiac, and neurological—into a single coherent syndrome. Do not fixate on a single "buzzword" symptom (e.g., polydactyly or hypotonia) in isolation.
+    *   *Trap to Avoid:* Do not diagnose based solely on limb anomalies; ensure craniofacial features (e.g., cleft lip/palate) align with the suspected syndrome (e.g., distinguishing Hartsfield syndrome from Greig Cephalopolysyndactyly).
+
+2.  **Adhere to Modern Genetic Testing Hierarchies:** When determining the next best test for developmental delay or dysmorphism, prioritize broad, high-yield screening methods over targeted testing unless the phenotype is pathognomonic.
+    *   *Trap to Avoid:* Do not default to FISH for suspected microdeletions (e.g., Cri-du-chat) as the *first* line if Array Comparative Genomic Hybridization (aCGH) is an option, as aCGH detects the target region plus other potential copy number variants.
+
+3.  **Retrieve Specific Syndrome-Associated Complications:** When a genetic syndrome is identified, recall its specific, less common, or behavioral associations rather than generic physiological complications.
+    *   *Trap to Avoid:* In Raine syndrome (osteosclerosis), recognize the association with self-injurious behavior rather than assuming structural brainstem compression (Chiari) is the primary answer. In Bardet-Biedl syndrome, consider hematologic monitoring (cyclic neutropenia) alongside renal imaging.
+
+4.  **Verify Inheritance Mechanisms for Recurrence Risk:** When asked about recurrence risk, first definitively identify the inheritance pattern (Autosomal Dominant vs. Recessive) of the suspected syndrome. Consider "Germline Mosaicism" for apparent *de novo* Autosomal Dominant mutations in healthy parents.
+    *   *Trap to Avoid:* Do not default to "Autosomal Recessive" (25% risk) for syndromes with features of Noonan or RASopathies, which are Autosomal Dominant and often involve germline mosaicism.
+
+5.  **Differentiate Neuropathy from Anterior Horn Cell Disease:** In cases of severe neonatal hypotonia and areflexia, distinguish between Spinal Muscular Atrophy (SMA) and Hereditary Motor and Sensory Neuropathies (like Dejerine-Sottas) by evaluating specific skeletal deformities.
+    *   *Trap to Avoid:* Do not anchor on SMA for every hypotonic infant; the presence of congenital talipes equinovarus (clubfoot) and progressive weakness strongly points toward a congenital neuropathy (Dejerine-Sottas).
+
+Answer: X

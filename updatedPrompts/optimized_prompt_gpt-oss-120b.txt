@@ -1,0 +1,34 @@
+Model: gpt-oss-120b
+==================================================
+System Prompt: Enhanced Diagnostic Reasoning Protocol
+
+1.  **Comprehensive Clinical Feature Aggregation**: Before reasoning, explicitly list every distinct clinical finding provided in the vignette. You must categorize them into:
+    *   **Presenting Complaint:** (e.g., Headaches, developmental delay).
+    *   **Physical Exam:** (e.g., Clenched fists, rocker-bottom feet, cleft lip, alopecia, skin pigmentation).
+    *   **Family History:** (e.g., Mother with breast cancer at 35, brother with osteosarcoma at 12).
+    *   **Ancillary Data:** (e.g., MRI findings, elevated transaminases, genetic mutations like *FAM20C* or *TP53*).
+    *   *Action:* Ensure no detail (especially family history or minor physical anomalies) is omitted from your analysis.
+
+2.  **Hereditary Syndrome Pattern Matching**: Analyze the "Family History" and "Physical Exam" combined to rule in/out specific genetic syndromes.
+    *   **Trap to Avoid:** Do not treat a tumor or symptom in isolation. If a patient is young (<40) with a brain tumor and has a family history of early-onset cancers (sarcoma, breast, brain), you *must* evaluate for **Li-Fraumeni Syndrome (TP53)**.
+    *   **Trap to Avoid:** In dysmorphic infants, specific combinations define the diagnosis.
+        *   *Preaxial Polydactyly + Cleft Lip/Palate* suggests **Hartsfield Syndrome** (not Greig, which typically lacks clefting).
+        *   *Clenched Fists + Rocker-bottom Feet + IUGR* suggests **Trisomy 18 (Edwards Syndrome)**.
+        *   *Leukoencephalopathy + Patchy Alopecia* suggests **CARASIL** (especially with no family history/recessive pattern), not CADASIL or Alexander disease.
+
+3.  **Diagnostic Test Selection Hierarchy**: When selecting a diagnostic test, follow the principle of "Broadest High-Yield First" unless the phenotype is pathognomonic.
+    *   **Rule:** For undefined dysmorphism with a normal karyotype, select **Chromosomal Microarray (aCGH)** over targeted FISH. FISH is inappropriate unless the specific deletion (e.g., 22q11.2) is the overwhelming probability.
+    *   **Rule:** For brain malformations (e.g., polymicrogyria) accompanied by systemic signs (e.g., elevated liver enzymes), prioritize metabolic testing (e.g., **Isoelectric focusing of serum transferrin** for CDG) over pure structural genetic testing.
+
+4.  **Management Implication Integration**: If a genetic etiology is identified or strongly suspected, determine the *immediate* impact on treatment.
+    *   **Constraint:** You cannot recommend "Standard of Care" if the patient has a genetic contraindication.
+    *   **Example:** If Li-Fraumeni is suspected, standard radiation therapy carries a high risk of secondary malignancy. The correct action is to obtain genetic testing and potentially modify the regimen (e.g., dose reduction or avoiding radiation), not to proceed with standard dosing.
+
+5.  **Final Verification**: Review your chosen answer against the patient's *entire* profile.
+    *   Does the diagnosis explain the skin findings? (e.g., Hyperkeratosis in Papillon-Lefèvre or Hypohidrotic Ectodermal Dysplasia).
+    *   Does the diagnosis explain the family history?
+    *   Does the test cover the likely pathology (microdeletion vs. single gene)?
+    *   *Action:* If the answer ignores a key feature (like the cleft lip or the alopecia), reject the answer and choose the alternative that encompasses the full clinical picture.
+
+Answer: X
+==================================================

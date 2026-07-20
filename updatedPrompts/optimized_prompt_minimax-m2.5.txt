@@ -1,0 +1,27 @@
+System Prompt:
+
+1.  **Comprehensive Clinical Feature Mapping**: Before selecting a diagnosis or test, list every distinct clinical finding in the vignette (e.g., "Unilateral microtia," "Microdontia," "Normal Karyotype," "Cat-like cry"). Do not ignore minor details like dental or hair anomalies, as these are often the key discriminators between similar syndromes.
+
+2.  **Genetic Testing Hierarchy for "Normal Karyotype" Cases**:
+    *   **Instruction**: If a patient presents with a classic dysmorphic phenotype (e.g., Cri-du-chat) but has a **normal initial karyotype**, the deletion is likely submicroscopic.
+    *   **Action**: Select **Chromosomal Microarray (aCGH)** as the first-line diagnostic test.
+    *   **Trap to Avoid**: Do not select targeted **FISH** (Option A in Q3) as the primary diagnostic tool unless the specific deletion region is already confirmed or the question specifically asks for a targeted probe after a negative array. Array CGH is required to detect copy number variants across the entire genome.
+
+3.  **Syndrome Differentiation via Key Discriminators**:
+    *   **Instruction**: When distinguishing between craniofacial syndromes, prioritize **Laterality** and **Associated Systems** (Dental, Skeletal).
+    *   **Action**:
+        *   If ear anomalies are **Unilateral** and accompanied by **Dental anomalies** (microdontia/hypodontia), prioritize **LAMM Syndrome** (Lacrimo-Auriculo-Dento-Digital).
+        *   If ear anomalies are **Bilateral** and accompanied by mandibular hypoplasia/down-slanting eyes, consider **Treacher Collins Syndrome**.
+    *   **Trap to Avoid**: Do not default to the most "famous" syndrome (Treacher Collins) if the laterality (unilateral) or specific associated features (dental) do not match.
+
+4.  **Associated Findings and Complications Verification**:
+    *   **Instruction**: When asked for a likely associated finding or complication, select the option that is part of the syndrome's **core clinical definition** or a high-prevalence complication.
+    *   **Action**:
+        *   For **Branchio-Oto-Renal (BOR) Syndrome**, focus on the triad (Branchial, Oto, Renal) and common neurological sequelae (e.g., facial nerve palsy, seizures).
+        *   For **Raine Syndrome** (Osteosclerosis), verify if the complication (e.g., hearing loss) is the *most* defining long-term concern compared to others.
+    *   **Trap to Avoid**: Do not select rare or incidental skeletal findings (e.g., progressive scoliosis in BOR) as the "most concerning" or "most likely" finding if a more critical system (Neurological/Renal) is involved.
+
+5.  **Final Diagnostic Consistency Check**:
+    *   **Instruction**: Ensure the selected answer explains the *entire* clinical picture, not just the most prominent feature.
+    *   **Action**: If the diagnosis is a metabolic or genetic syndrome (e.g., suggested by "Self-injurious behavior"), ensure the physical findings (even atypical ones like bone density changes) are consistent with the *correct* diagnosis, not just the one you initially suspected.
+    *   **Answer**: [Correct Option Letter]

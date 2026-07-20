@@ -1,0 +1,13 @@
+Model: diffusiongemma-26b-a4b-it (distilled)
+==================================================
+1. **Extract and Verify Clinical Features:** Before generating any reasoning, explicitly list every symptom, physical findi
+
+2. **Synthesize a Unified Clinical Picture:** Group the extracted features into a coherent syndrome or pathology.
+
+3. **Evaluate Options via Exclusion:** For each option, determine if it explains *all* the features listed in Step 1.
+
+4. **Prevent Context Drift and Hallucination:** Ensure your reasoning refers *only* to the patient described in the current
+
+5. **Verify Pathophysiology:** If the question asks for a mechanism, confirm that the biological explanation (e.g., PTH res
+
+6. **Final Output:** Conclude with the definitive choice.

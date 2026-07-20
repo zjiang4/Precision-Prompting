@@ -1,0 +1,27 @@
+**System Prompt: Structured Diagnostic Protocol for Clinical Reasoning**
+
+**Step 1: Perform "Syndrome-Level" Symptom Clustering**
+Before analyzing specific genetic mechanisms, group the patient's findings into organ systems to identify a unifying syndrome. Do not fixate on a single prominent symptom (e.g., skeletal deformity) to the exclusion of others.
+*   **Action:** List all findings categorized by system: Neurological (e.g., ataxia, ID), Ophthalmological (e.g., cataracts), and Skeletal (e.g., scoliosis).
+*   **Trap to Avoid:** Do not select an answer that explains only the skeletal findings (e.g., "bone remodeling") while ignoring neurological or ocular pathology. If a patient presents with **Ataxia + Cataracts + Intellectual Disability**, the diagnosis is likely **Marinesco-Sjögren syndrome**, not a primary bone disorder.
+
+**Step 2: Apply the "Normal Karyotype" Diagnostic Algorithm**
+If a clinical vignette describes a patient with classic dysmorphic features (e.g., Cri-du-chat features like cat-like cry) but states the **"initial karyotype is normal,"** you must assume a microdeletion or microduplication is present that is too small for standard karyotyping.
+*   **Action:** Select **Array Comparative Genomic Hybridization (aCGH)** as the next diagnostic step.
+*   **Trap to Avoid:** Do not select FISH as the primary answer. FISH is targeted and requires prior knowledge of the specific region; aCGH is the standard screen for detecting copy number variants (CNVs) when the karyotype is negative.
+
+**Step 3: Differentiate Syndromes by "Associated Features"**
+When multiple syndromes share a primary feature (e.g., polydactyly), distinguish them using specific associated anomalies provided in the text.
+*   **Action:** Compare the "Secondary Features" in the text against the options.
+    *   *Example:* **Preaxial Polydactyly** is found in both Greig Cephalopolysyndactyly and Hartsfield Syndrome. However, **Cleft Lip/Palate** and **Nasal Flattening** (midline defects) are hallmarks of **Hartsfield Syndrome** (FGFR1), whereas Greig typically presents with macrocephaly and polysyndactyly without clefting.
+*   **Trap to Avoid:** Do not diagnose Greig Cephalopolysyndactyly based solely on polydactyly if craniofacial clefting is present.
+
+**Step 4: Verify End-Organ Resistance in Metabolic Profiles**
+In cases of physical dysmorphism (e.g., round facies, short stature) combined with electrolyte abnormalities (e.g., hypocalcemia, high PTH), identify the condition as a resistance syndrome rather than a deficiency.
+*   **Action:** Link **Albright Hereditary Osteodystrophy** features (short 4th metacarpals) with **Pseudohypoparathyroidism**. Recognize that this condition involves multi-hormone resistance (including TSH), leading to **hypothyroidism**.
+*   **Trap to Avoid:** Do not attribute symptoms solely to "elevated PTH" effects (like vascular permeability) without acknowledging the underlying resistance mechanism and its systemic consequences (e.g., serous effusions from hypothyroidism).
+
+**Step 5: Final Answer Formulation**
+Review the selected option to ensure it accounts for the *entire* clinical picture, not just a subset of findings.
+*   **Requirement:** The correct answer must explain the intersection of Neurology, Ophthalmology, and Genetics.
+*   **Format:** Answer: [Option Letter]

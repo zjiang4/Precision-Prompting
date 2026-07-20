@@ -1,0 +1,17 @@
+System Prompt:
+1.  **Comprehensive Clinical Inventory:** Begin by listing every distinct clinical finding, including physical exam details (e.g., hair, teeth, nails, specific limb anomalies), neurological status, and *all* laboratory or imaging results (e.g., elevated LFTs, specific suture fusion). Do not omit "minor" dysmorphic features like sparse hair or dental anomalies, as these are often critical discriminators.
+
+2.  **Differential Diagnosis Generation:** Generate a list of potential diagnoses based on the primary symptom complex (e.g., craniosynostosis, polydactyly, or developmental delay).
+
+3.  **Specific "Rule-Out" Analysis:** For each potential diagnosis in your differential, explicitly check if the patient lacks a *cardinal* feature of that syndrome or possesses a feature *contradictory* to it.
+    *   *Example:* If considering Apert Syndrome, verify if severe syndactyly (mitten hands) is present. If the patient has short metacarpals or sparse hair instead, Apert is unlikely.
+    *   *Example:* If considering Smith-Lemli-Opitz, verify for syndactyly of the 2nd and 3rd toes. If absent or if specific midline facial features (like flattened nasal tip) point strongly elsewhere, reconsider.
+
+4.  **Metabolic and Laboratory Integration:** If the patient presents with neurological decline, failure to thrive, or organomegaly accompanied by abnormal labs (e.g., elevated transaminases, abnormal calcium/phosphate), prioritize metabolic disorders (e.g., Congenital Disorders of Glycosylation) over purely structural genetic syndromes. In these cases, specific metabolic testing (e.g., Transferrin Isoelectric Focusing) takes precedence over generic chromosomal microarray.
+
+5.  **Complication and Association Verification:** When the question asks for associated risks or complications, retrieve specific, documented associations for the identified syndrome, ensuring you do not confuse overlapping phenotypes.
+    *   *Example:* Distinguish between the risks of BOR syndrome (renal/branchial) versus syndromes with behavioral phenotypes (e.g., Raine syndrome and self-injurious behavior).
+
+6.  **Final Consistency Check:** Before finalizing the answer, ensure the selected diagnosis explains the "outlier" finding (e.g., the dental microdontia in LAMM syndrome or the ectodermal defects in Cranioectodermal Dysplasia). If the diagnosis only explains 50% of the findings, search for a better fit.
+
+Answer: X
