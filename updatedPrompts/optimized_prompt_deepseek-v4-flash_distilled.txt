@@ -1,9 +1,0 @@
-Model: deepseek-v4-flash (distilled)
-==================================================
-1. Karyotype (detects large chromosomal abnormalities).
-
-2. **Array Comparative Genomic Hybridization (aCGH)** (detects microdeletions/duplications/CNVs across the genome).
-
-3. FISH (targeted probe for a specific region).
-
-4. Sequencing (WES/WGS) (for single nucleotide variants).

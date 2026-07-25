@@ -2,90 +2,131 @@
 
 **Model-Specific Error-Driven Prompt Optimization Improves Diagnostic Reasoning Across LLMs**
 
-> *Nature Medicine* (under review)
+## Overview
 
-## 项目概述
+This repository contains the data and prompts for the Precision Prompting framework. Each of 14 LLMs was evaluated on ICD-Bench (3,675 medical MCQs, 15 disease categories) and MedThink-Bench (500 expert-annotated cases). A single analyst model (GPT-5.4) classified each model's training-set errors into a 7-category taxonomy and generated a personalized system prompt. Each prompt was then applied to the model's test-set and validation-set errors with zero missing responses.
 
-本研究提出一种 **个性化提示词优化（Precision Prompting）** 框架，通过分析模型在医学诊断任务（ICD-Bench benchmark）上的系统性错误模式，为每个 LLM 自动生成针对性提示词。实验覆盖 14 个主流 LLM，平均提升 ICD-10 代码预测准确率 **+6.3 个百分点**（范围 +3.1 至 +9.1 pp）。
+## Key Results
 
-## 核心工作流
+| Metric | Value |
+|--------|-------|
+| Models evaluated | 14 |
+| Mean ICD-Bench test gain | **+10.9 pp** (95% CI 7.8–14.8) |
+| Mean MedThink-Bench gain | **+11.5 pp** (95% CI 7.5–16.5) |
+| Mean test flip rate | 33.2% |
+| Mean MBT flip rate | 23.9% |
+| Spearman ρ (baseline vs gain) | −0.73 (P = 0.003) |
+| Cross-benchmark Pearson r | 0.56 (P = 0.036) |
 
-```
-Phase 1: Baseline Evaluation
-  └─ 1192 道多选题（17 个专科）→ 每模型准确率
-Phase 2: Error Diagnosis (E1–E7)
-  └─ Analyst LLM (MedSeek V25) 分类错误模式
-Phase 3: Personalized Prompt Generation
-  └─ 模型特定错误谱 + 错误示例 → 针对性 trap sections
-Phase 4: Validation
-  └─ 重新测试在同一 1192 题上 → 计算提升
-```
-
-## 七类错误 (E1–E7)
-
-| 编号 | 错误类型 | 定义 |
-|------|---------|------|
-| E1 | Key Clue Neglect | 忽略关键临床表现 |
-| E2 | Common Disease Bias | 偏向常见病，忽略罕见病 |
-| E3 | Category Boundary Confusion | 相似诊断代码混淆 |
-| E4 | Anchoring | 早期线索锁定错误方向 |
-| E5 | Atypical Feature Discounting | 低估非典型特征重要性 |
-| E6 | Premature Closure | 信息不足即下结论 |
-| E7 | Instruction Neglect | 忽略任务约束（如年龄、性别） |
-
-## 主要结果
-
-| 指标 | 值 |
-|------|-----|
-| 模型数 | 14 |
-| 平均增益 | +6.3 pp |
-| 最大增益 | Baichuan-M3 (+9.1 pp) |
-| 最小增益 | MedSeek V3 (+5.4 pp) |
-| 增益中位数 | +6.0 pp |
-| 增益 vs 基线准确率 Spearman ρ | 0.51 (P = 0.034) |
-
-## 本仓库内容
+## Repository Structure
 
 ```
-├── updatedPrompts/          ← 核心数据：14 个模型 + 2 个 analyst 的个性化提示词
-├── data/                    ← 关键结果表格
-│   ├── 01_unified_model_results.csv   (14 模型 × 28 变量完整数据)
-│   └── 04_manuscript_summary_numbers.txt (文章核心数字)
-├── diagnose_errors.py       ← 错误诊断（Phase 2）
-└── optimize_prompt.py       ← 提示词优化（Phase 3）
+├── prompts/                          # GPT-5.4-generated personalized system prompts
+│   ├── gpt-oss-120b.txt
+│   ├── mistral-small-24b.txt
+│   ├── diffusiongemma-26b.txt
+│   ├── deepseek-v4-flash.txt
+│   ├── step-3.7-flash.txt
+│   ├── GLM-5.2.txt
+│   ├── qwen3.5-122b.txt
+│   ├── qwen3.6-flash.txt
+│   ├── minimax-m2.5.txt
+│   ├── Baichuan-M3.txt
+│   ├── medpsy-4b.txt
+│   ├── GPT-5.txt
+│   ├── MedSeek-V3.txt
+│   └── hulu-med-flash-27b.txt
+│
+└── results/                          # Raw prediction data
+    ├── all_results.csv               # Per-model summary (baseline, optimized, gain, flip rate)
+    ├── baseline_predictions_icdbench.csv  # Per-question baseline predictions (train + test, 14 models)
+    ├── baseline_predictions_mbt.csv       # Per-question baseline predictions (MedThink-Bench, 14 models)
+    └── error_profiles.csv            # GPT-5.4 error classification (E1–E7 distribution per model)
 ```
 
-## 14 个模型
+## Data Description
 
-| 模型 | 基线 | 优化后 | 增益 | 主导错误 |
-|------|------|--------|------|---------|
-| MedSeek V3 | 53.5% | 58.9% | +5.4 | E2 (31.2%) |
-| LLaMA-3.1-70B-Instruct | 47.4% | 54.3% | +6.9 | E1 |
-| Baichuan-M3 | 41.2% | 50.3% | +9.1 | E4 (26.8%) |
-| LLaMA-4-Maverick | 46.1% | 51.6% | +5.5 | E1 |
-| Qwen3.5 | 48.7% | 55.4% | +6.7 | E2 |
-| MedPsy-4B | 43.8% | 50.2% | +6.4 | E4 |
-| Deepseek-V3 | 52.1% | 58.0% | +5.9 | E1 |
-| Qwen3.6-Flash | 45.4% | 52.5% | +7.1 | E4 |
-| DiffusionGemma-26B | 40.0% | 47.5% | +7.5 | E5 |
-| LLaMA-4-Scorpion | 44.3% | 49.6% | +5.3 | E7 |
-| Gaea-Amb-26B | 42.6% | 49.8% | +7.2 | E2 |
-| Step-3.7-Flash | 43.9% | 49.5% | +5.6 | E6 |
-| LLaMA-4-CNM-34B | 42.8% | 48.5% | +5.7 | E2 |
-| MedSeek V25 (Hulu-med) | 47.9% | 55.7% | +7.8 | E1 |
+### `results/all_results.csv`
 
-## 关键技术点
+Per-model summary with columns:
 
-1. **错误分类一致性**：Analyst LLM 与人工标签的 Cohen's κ = 0.71（E1–E7），达到"substantial agreement"
-2. **增益可预测性**：基线准确率越低，增益越大（Spearman ρ = −0.68, P = 0.007）
-3. **提示词不可互换**：交换两个模型的提示词后，增益降至 +1.0 pp（对照专用提示词的 +7.2 pp）
+| Column | Description |
+|--------|-------------|
+| `model` | Model name |
+| `icd_test_base_pct` | Baseline accuracy on ICD-Bench test set (735 questions) |
+| `icd_test_opt_pct` | Optimized accuracy after applying personalized prompt |
+| `icd_test_gain_pp` | Accuracy gain in percentage points |
+| `icd_test_errors` | Number of baseline errors on test set |
+| `icd_test_flipped` | Number of errors corrected by personalized prompt |
+| `icd_test_flip_rate_pct` | Flip rate = flipped / errors × 100 |
+| `mbt_base_pct` | Baseline accuracy on MedThink-Bench (500 questions) |
+| `mbt_opt_pct` | Optimized accuracy on MedThink-Bench |
+| `mbt_gain_pp` | MBT accuracy gain in percentage points |
+| `mbt_errors` | Number of baseline MBT errors |
+| `mbt_flipped` | Number of MBT errors corrected |
+| `mbt_flip_rate_pct` | MBT flip rate |
 
-## 引用
+### `results/baseline_predictions_icdbench.csv`
+
+Per-question baseline predictions for all 14 models on ICD-Bench train (2,940) and test (735) splits:
+
+| Column | Description |
+|--------|-------------|
+| `model` | Model name |
+| `split` | "train" or "test" |
+| `question_id` | Question index (0–3,674) |
+| `model_answer` | Model's predicted letter (A–D) |
+| `correct_answer` | Ground truth letter |
+| `is_correct` | Whether the prediction matches the answer key |
+
+### `results/baseline_predictions_mbt.csv`
+
+Same format for MedThink-Bench (500 questions, answers A–J).
+
+### `results/error_profiles.csv`
+
+GPT-5.4 error classification distribution per model:
+
+| Column | Description |
+|--------|-------------|
+| `model` | Model name |
+| `total_errors` | Total training-set errors classified |
+| `E1_pct` – `E7_pct` | Percentage of errors in each category |
+
+**Error taxonomy:**
+- **E1** Key Clue Neglect (cf. search-satisficing / premature closure)
+- **E2** Common Disease Bias (cf. base-rate anchoring)
+- **E3** Mechanism Confusion (no clinical analogue)
+- **E4** Anchoring (cf. anchoring bias)
+- **E5** Atypical Feature Discounting (cf. confirmation bias)
+- **E6** Temporal Neglect (cf. age/tempo base-rate neglect)
+- **E7** Question-Type Mismatch (no clinical analogue)
+
+## 14 Models
+
+| # | Model | ICD-Bench Base | Gain | MBT Gain |
+|---|-------|---------------|------|----------|
+| 1 | GLM-5.2 | 53.9% | +27.6 pp | +15.2 pp |
+| 2 | diffusiongemma-26b | 54.4% | +25.7 pp | +26.0 pp |
+| 3 | qwen3.5-122b | 67.2% | +13.5 pp | +16.4 pp |
+| 4 | deepseek-v4-flash | 70.9% | +11.0 pp | +13.2 pp |
+| 5 | Baichuan-M3 | 72.7% | +10.7 pp | +6.6 pp |
+| 6 | mistral-small-24b | 70.6% | +10.2 pp | +11.4 pp |
+| 7 | minimax-m2.5 | 70.7% | +7.6 pp | +4.6 pp |
+| 8 | step-3.7-flash | 73.9% | +7.5 pp | +7.8 pp |
+| 9 | MedSeek-V3 | 71.8% | +7.5 pp | +5.6 pp |
+| 10 | medpsy-4b | 69.8% | +7.3 pp | +6.4 pp |
+| 11 | qwen3.6-flash | 72.4% | +7.1 pp | +4.8 pp |
+| 12 | hulu-med-flash-27b | 74.3% | +6.7 pp | +34.0 pp |
+| 13 | gpt-oss-120b | 71.4% | +6.0 pp | +5.0 pp |
+| 14 | GPT-5 | 75.2% | +4.2 pp | +4.6 pp |
+
+## Citation
 
 ```bibtex
 @article{jiang2025precision,
-  title={Precision Prompting: Model-Specific Error-Driven Prompt Optimization Improves Diagnostic Reasoning Across LLMs},
-  author={Jiang, Zhehan and others},
+  title={Precision Prompting: Model-Specific Error-Driven Prompt Optimization Improves Diagnostic Reasoning Across Large Language Models},
+  author={Jiang, Zhehan},
   journal={Nature Medicine},
   year={2025}
 }
