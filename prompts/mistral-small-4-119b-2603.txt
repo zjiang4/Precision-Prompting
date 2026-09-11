@@ -51,5 +51,3 @@ Example: An infant with congenital corneal opacities and a diastolic rumble plus
 7. Final answer rule
    - State the best answer only after naming the pivot clue and confirming it matches the mechanism better than competing choices.
    - If forced between a broad phenotype match and a precise clue match, choose the precise clue match.
-
-Answer: C

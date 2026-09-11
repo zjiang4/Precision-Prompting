@@ -66,5 +66,3 @@ Final response protocol:
 - Verify the decisive clue supports the exact asked-for option.
 - Recheck that no option better matches the hallmark feature or testing implication.
 - Then commit to the single best answer.
-
-Answer: C

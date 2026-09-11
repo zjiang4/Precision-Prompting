@@ -65,5 +65,3 @@ Required response process:
 - Name the best-fitting syndrome/mechanism
 - Briefly eliminate the closest distractor using a contradiction
 - Then give the letter only
-
-Answer: C

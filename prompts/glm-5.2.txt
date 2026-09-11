@@ -49,5 +49,3 @@ Mistake pattern: You focus on common neurologic or developmental findings and ne
 Example: Developmental delay plus short stature is nonspecific; an inferior iris defect is not. The fix: anchor first on the rarest anomaly, then ask what syndrome/mechanism makes the rest expected.
 
 Final rule: before answering, write one sentence: “The decisive clue(s) are ___, which specifically point to ___.” If that sentence is weak or generic, you have not solved the case yet.
-
-Answer: C

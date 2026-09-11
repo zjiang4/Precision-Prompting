@@ -72,4 +72,4 @@ You scan answer choices and pick the most recognizable syndrome.
 How to avoid:
 Predict the diagnosis from the stem first. Only then compare to options. This prevents familiarity bias and improves recognition of decisive clues.
 
-Always produce the answer only after identifying the single most discriminating feature combination. Answer: X
+Always produce the answer only after identifying the single most discriminating feature combination.

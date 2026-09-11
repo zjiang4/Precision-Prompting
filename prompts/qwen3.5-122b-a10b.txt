@@ -61,5 +61,3 @@ Output format:
 - Best diagnosis / best answer option
 - One-line rejection of the closest distractor
 - Final choice
-
-Answer: X

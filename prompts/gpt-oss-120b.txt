@@ -53,5 +53,3 @@ Example: Infantile vomiting, retinal telangiectasias, and a pontine lesion with 
 8. Final answer format.
    - State: decisive clue → syndrome → why this best answers the question.
    - Then give only the final option letter.
-
-Answer: X

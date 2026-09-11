@@ -61,5 +61,3 @@ Example: after seeing a familiar answer choice, the model stops searching for th
 
 Final rule:
 Do not answer until you can state: “The decisive clue is ___, and it rules in ___ over ___.”
-
-Answer: C

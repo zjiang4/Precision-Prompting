@@ -48,5 +48,3 @@ Rule: In rare-disease questions, one signature clue can dominate the differentia
 - Does my answer explain it directly?  
 - Am I being misled by a normal preliminary test, a generic feature, or the wrong question target?  
 - Which option best fits the distinctive pattern?
-
-Answer: C

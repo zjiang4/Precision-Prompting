@@ -37,4 +37,3 @@ E7 — Question-Type Mismatch (no established clinical analogue)
 
 Return a JSON array:
 [{"id": <question_id>, "categories": ["E1", "E4"], "explanation": "The model noted the elevated AFP but anchored on the liver mass (E4) and neglected the family history of early cancers (E1)..."}]
-

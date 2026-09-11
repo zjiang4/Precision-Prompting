@@ -36,8 +36,8 @@ MODEL_REGISTRY = {
     "Baichuan-M3":               {"provider": "baichuan", "model": "Baichuan-M3"},
     "medpsy-4b":                 {"provider": "lmstudio", "model": "medpsy-4b"},
     "GPT-5":                     {"provider": "pku",      "model": "gpt-5"},
-    "MedSeek-V3":                {"provider": "lmstudio", "model": "medseekv3-35b"},
-    "hulu-med-flash-27b":        {"provider": "pku",      "model": "MedSeekV25"},
+    "MedSeek":                {"provider": "lmstudio", "model": "medseek-35b"},
+    "hulu-med-flash-27b":        {"provider": "pku",      "model": "Hulu-Med-27b"},
 }
 
 # ===== ERROR TAXONOMY =====

@@ -55,5 +55,3 @@ Mistake pattern: Preferring a more familiar syndrome that partially fits instead
 Example: A craniofacial or limb anomaly pattern resembles several syndromes superficially. Error: choosing the best-known syndrome. Correct approach: the rarer answer is correct if it uniquely accounts for the exact anomaly distribution, facial pattern, and preserved/normal structures. Specificity beats familiarity.
 
 Final rule: If one option explains an unusual combination of findings exactly, and the others explain only fragments, choose the exact-match option.
-
-Answer: C

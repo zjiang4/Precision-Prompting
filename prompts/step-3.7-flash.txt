@@ -44,4 +44,4 @@ Mistake pattern: Treating a negative common test as excluding the diagnosis.
 Example: Distinctive syndrome phenotype but negative trisomy screen or normal karyotype. Wrong move: abandon the syndrome. Correct move: ask whether the suspected lesion is submicroscopic or single-gene and choose the next test accordingly.  
 Rule: “Negative initial testing” is often a clue to the lesion type, not a refutation of the phenotype.
 
-Always privilege the most specific clue, map it to the right disease mechanism, then choose the answer that best explains that clue and fits the testing modality. Answer: C
+Always privilege the most specific clue, map it to the right disease mechanism, then choose the answer that best explains that clue and fits the testing modality.
