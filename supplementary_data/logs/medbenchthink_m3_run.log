@@ -1,0 +1,522 @@
+[06-28 16:24:10] M3 starting on 500 remaining questions
+[06-28 16:24:16] [baseline] idx=1 pred=A key=A. IGF1 ✓
+[06-28 16:24:22] [baseline] idx=3 pred=B key=B. Serum lipase ✓
+[06-28 16:24:25] [baseline] idx=4 pred=A key=A. Bright light therapy and decreased light at night ✓
+[06-28 16:24:34] [baseline] idx=5 pred=B key=B. Abdominal radiograph ✓
+[06-28 16:24:37] [baseline] idx=6 pred=D key=D. Urine porphyrin levels ✓
+[06-28 16:24:38] [baseline] idx=2 pred=A key=A. HRCT ✓
+[06-28 16:24:38] [baseline] idx=7 pred=B key=B. Radiograph of the wrist ✓
+[06-28 16:24:42] [baseline] idx=8 pred=D key=D. Sweat chloride test ✓
+[06-28 16:24:49] [baseline] idx=9 pred=H key=H. Increased intensity of the murmur with deep inspiration ✓
+[06-28 16:25:10] [baseline] idx=11 pred=None key=G. An activated protein C resistance ratio of 0.3 ✗
+[06-28 16:25:10] [baseline] idx=10 pred=F key=G. Synovitis of the metacarpophalangeal joints and subcutaneous nodules ✗
+[06-28 16:25:12] [baseline] idx=12 pred=None key=G. Thoracolumbar scoliosis ✗
+[06-28 16:25:20] [baseline] idx=13 pred=None key=D. Renal ultrasound ✗
+[06-28 16:25:32] [baseline] idx=14 pred=A key=A. Bone marrow biopsy ✓
+[06-28 16:25:38] [baseline] idx=16 pred=B key=B. Cholangiography ✓
+[06-28 16:25:40] [baseline] idx=17 pred=B key=B. Prescribe a course of oral amoxicillin-clavulanate ✓
+[06-28 16:25:41] [baseline] idx=15 pred=None key=I. MRI scan of the spine ✗
+[06-28 16:25:58] [baseline] idx=18 pred=None key=J. Type 4 collagen antibody levels ✗
+[06-28 16:26:05] [baseline] idx=19 pred=None key=C. Serial measurement of serum troponin concentration ✗
+[06-28 16:26:06] [baseline] idx=20 pred=None key=A. Perform sweat testing ✗
+[06-28 16:26:07] [baseline] idx=21 pred=D key=H. Refer to the emergency department ✗
+[06-28 16:26:23] [baseline] idx=25 pred=C key=C. No further tests are needed ✓
+[06-28 16:26:24] [baseline] idx=22 pred=None key=J. Forced cough elicits abdominal pain ✗
+[06-28 16:26:27] [baseline] idx=23 pred=E key=E. Toe-brachial index ✓
+[06-28 16:26:28] [baseline] idx=24 pred=C key=C. Bronchoscopy ✓
+[06-28 16:26:28] M3 checkpoint: 25 total
+[06-28 16:26:42] [baseline] idx=29 pred=H key=H. Alpha-1 antitrypsin level  ✓
+[06-28 16:26:47] [baseline] idx=26 pred=None key=G. Renal biopsy ✗
+[06-28 16:26:53] [baseline] idx=27 pred=None key=E. Colonoscopy ✗
+[06-28 16:26:56] [baseline] idx=28 pred=None key=I. Repeat sweat chloride test ✗
+[06-28 16:27:06] [baseline] idx=30 pred=None key=E. Transesophageal echocardiogram ✗
+[06-28 16:27:18] [baseline] idx=32 pred=None key=B. Barium esophagram ✗
+[06-28 16:27:20] [baseline] idx=31 pred=None key=B. Bowel wall biopsy ✗
+[06-28 16:27:25] [baseline] idx=34 pred=E key=C. Cardiac stress testing ✗
+[06-28 16:27:27] [baseline] idx=33 pred=None key=A. Serum protein immunoelectrophoresis ✗
+[06-28 16:27:37] [baseline] idx=35 pred=I key=I. Direct Coombs test ✓
+[06-28 16:27:43] [baseline] idx=36 pred=F key=F. Ventilation-perfusion imaging ✓
+[06-28 16:27:43] [baseline] idx=37 pred=I key=A. CT angiography ✗
+[06-28 16:27:56] [baseline] idx=38 pred=None key=C. Culture in Sabouraud liquid medium ✗
+[06-28 16:28:05] [baseline] idx=40 pred=G key=G. Small bowel endoscopy and biopsy ✓
+[06-28 16:28:06] [baseline] idx=39 pred=A key=I. Genetic testing ✗
+[06-28 16:28:10] [baseline] idx=41 pred=None key=E. Weakness with wrist flexion ✗
+[06-28 16:28:19] [baseline] idx=42 pred=I key=I. Biphasic (contrast medium, followed by saline) ✓
+[06-28 16:28:22] [baseline] idx=44 pred=J key=J. Fractional excretion of urea (FEUrea) ✓
+[06-28 16:28:28] [baseline] idx=43 pred=I key=B. Pressing on the anterolateral aspect of the right posterior tubercle of the transverse process of the associated vertebra ✗
+[06-28 16:28:32] [baseline] idx=46 pred=G key=G. Diagnostic abdominal paracentesis ✓
+[06-28 16:28:33] [baseline] idx=45 pred=None key=B. Early diastolic extra heart sound ✗
+[06-28 16:28:49] [baseline] idx=49 pred=D key=B. CT of the brain ✗
+[06-28 16:28:49] [baseline] idx=47 pred=None key=E. Perform CT of the head ✗
+[06-28 16:28:56] [baseline] idx=48 pred=None key=J. Imaging of the adrenal glands and the pelvis ✗
+[06-28 16:28:57] [baseline] idx=51 pred=B key=B. Atropine ✓
+[06-28 16:28:57] M3 checkpoint: 50 total
+[06-28 16:29:00] [baseline] idx=50 pred=B key=G. Urinalysis with microscopy ✗
+[06-28 16:29:00] [baseline] idx=53 pred=C key=C. Immediate exploration of the affected side and operate opposite side even if asymptomatic ✓
+[06-28 16:29:07] [baseline] idx=54 pred=D key=D. Phototherapy ✓
+[06-28 16:29:10] [baseline] idx=52 pred=B key=A. Limiting pCO, of the patient ✗
+[06-28 16:29:15] [baseline] idx=55 pred=A key=C. Continue valproate and serial drug monitoring in blood ✗
+[06-28 16:29:21] [baseline] idx=57 pred=None key=A. Testing for HIV, fecal occult blood, and sexually transmitted diseases ✗
+[06-28 16:29:26] [baseline] idx=56 pred=None key=C. Rifampicin (450 mg) + Dapsone (50 mg) + Clofazimine (150 mg) monthly and 50 mg alternate days ✗
+[06-28 16:29:29] [baseline] idx=59 pred=B key=B. Oral erythromycin ✓
+[06-28 16:29:41] [baseline] idx=60 pred=A key=A. Continue current anti-retroviral treatment, antimicrobial, and anti-tuberculoid therapies ✓
+[06-28 16:29:42] [baseline] idx=58 pred=None key=D. Clindamycin ✗
+[06-28 16:29:44] [baseline] idx=61 pred=A key=E. Maintain dose of current medication ✗
+[06-28 16:29:49] [baseline] idx=62 pred=B key=B. Urgent surgical intervention ✓
+[06-28 16:30:00] [baseline] idx=66 pred=D key=D. Fresh frozen plasma ✓
+[06-28 16:30:07] [baseline] idx=64 pred=B key=B. Furosemide ✓
+[06-28 16:30:11] [baseline] idx=65 pred=None key=C. Lactated ringer ✗
+[06-28 16:30:12] [baseline] idx=63 pred=None key=C. Administer intravenous sodium bicarbonate ✗
+[06-28 16:30:24] [baseline] idx=69 pred=D key=D. Repeat HIV serology and initiate triple antiretroviral therapy immediately ✓
+[06-28 16:30:28] [baseline] idx=70 pred=B key=B. Laparoscopy ✓
+[06-28 16:30:34] [baseline] idx=67 pred=D key=E. Vaginal moisturizers ✗
+[06-28 16:30:35] [baseline] idx=68 pred=None key=E. Venlafaxine ✗
+[06-28 16:30:45] [baseline] idx=74 pred=A key=A. Proceed with liver biopsy ✓
+[06-28 16:30:49] [baseline] idx=73 pred=B key=B. Insulin, potassium, IV fluids, and glucose ✓
+[06-28 16:30:50] [baseline] idx=71 pred=A key=C. Observation ✗
+[06-28 16:30:50] [baseline] idx=72 pred=B key=B. Plasmapheresis ✓
+[06-28 16:31:08] [baseline] idx=76 pred=A key=D. Azithromycin and ethambutol ✗
+[06-28 16:31:08] M3 checkpoint: 75 total
+[06-28 16:31:10] [baseline] idx=75 pred=None key=A. Restart rosuvastatin at a lower dose ✗
+[06-28 16:31:15] [baseline] idx=78 pred=B key=A. Lowering citalopram dose ✗
+[06-28 16:31:25] [baseline] idx=79 pred=B key=B. Fluoxetine ✓
+[06-28 16:31:25] [baseline] idx=77 pred=E key=E. Change lisinopril to losartan ✓
+[06-28 16:31:28] [baseline] idx=81 pred=B key=C. Treat with three weekly injections of penicillin, obtain titers in 6 months ✗
+[06-28 16:31:28] [baseline] idx=80 pred=B key=B. Conservative management with IV fluid hydration and observation ✓
+[06-28 16:31:47] [baseline] idx=82 pred=C key=C. Isosorbide dinitrate ✓
+[06-28 16:31:49] [baseline] idx=83 pred=None key=E. IV fluids and monitoring ✗
+[06-28 16:31:53] [baseline] idx=84 pred=D key=D. The child should be administered a single dose of oral azithromycin. ✓
+[06-28 16:31:58] [baseline] idx=87 pred=E key=E. Pyrantel pamoate ✓
+[06-28 16:32:08] [baseline] idx=85 pred=B key=B. Intravenous ciprofloxacin and vancomycin therapy ✓
+[06-28 16:32:18] [baseline] idx=88 pred=None key=B. Administer glucagon ✗
+[06-28 16:32:21] [baseline] idx=89 pred=D key=D. Metoprolol succinate ✓
+[06-28 16:32:24] [baseline] idx=86 pred=None key=E. Perform percutaneous drainage ✗
+[06-28 16:32:28] [baseline] idx=90 pred=A key=A. Avoiding all dairy products ✓
+[06-28 16:32:38] [baseline] idx=91 pred=B key=A. Cognitive-behavioral therapy ✗
+[06-28 16:32:42] [baseline] idx=94 pred=C key=C. Apply a simple shoulder sling ✓
+[06-28 16:32:51] [baseline] idx=92 pred=None key=A. Botox ✗
+[06-28 16:32:52] [baseline] idx=93 pred=None key=D. Administer betamethasone, ampicillin, and proceed with cesarean section ✗
+[06-28 16:32:56] [baseline] idx=96 pred=H key=H. Pralidoxime ✓
+[06-28 16:33:09] [baseline] idx=95 pred=None key=B. Administer intravenous nitroglycerin, and intravenous furosemide ✗
+[06-28 16:33:17] [baseline] idx=98 pred=None key=D. Increase oxytocin infusion ✗
+[06-28 16:33:21] [baseline] idx=97 pred=J key=J. Switch the extended-release morphine to methadone ✓
+[06-28 16:33:22] [baseline] idx=99 pred=B key=B. Initiate treatment with ampicillin, gentamicin, and metronidazole ✓
+[06-28 16:33:27] [baseline] idx=100 pred=H key=H. Pyridoxine ✓
+[06-28 16:33:27] M3 checkpoint: 100 total
+[06-28 16:33:33] [baseline] idx=101 pred=E key=E. Chloramphenicol ✓
+[06-28 16:33:35] [baseline] idx=104 pred=D key=D. Halothane ✓
+[06-28 16:33:44] [baseline] idx=103 pred=D key=D. Increased gene expression of GLUT-4 ✓
+[06-28 16:33:44] [baseline] idx=106 pred=B key=B. Irreversible inhibition of H+/K+-ATPase at parietal cells ✓
+[06-28 16:33:45] [baseline] idx=105 pred=D key=D. Decreased pulmonary capillary wedge pressure ✓
+[06-28 16:33:46] [baseline] idx=102 pred=None key=A. Warfarin ✗
+[06-28 16:33:51] [baseline] idx=107 pred=B key=B. 1,500 units ✓
+[06-28 16:33:51] [baseline] idx=108 pred=A key=A. Blocking reuptake of dopamine and norepinephrine ✓
+[06-28 16:33:55] [baseline] idx=109 pred=D key=D. 1200 milligrams ✓
+[06-28 16:33:55] [baseline] idx=110 pred=D key=D. Phosphoinositol system ✓
+[06-28 16:33:59] [baseline] idx=111 pred=B key=B. Decreased osteoclast activity ✓
+[06-28 16:34:14] [baseline] idx=112 pred=A key=A. Ribosomal assembly ✓
+[06-28 16:34:18] [baseline] idx=114 pred=None key=B. Reversible inhibition of cyclooxygenase enzymes ✗
+[06-28 16:34:20] [baseline] idx=113 pred=G key=G. β2-Adrenergic agonist ✓
+[06-28 16:34:26] [baseline] idx=115 pred=J key=J. Fat malabsorption ✓
+[06-28 16:34:36] [baseline] idx=116 pred=B key=B. Inhibition of phosphodiesterase ✓
+[06-28 16:34:44] [baseline] idx=117 pred=None key=A. Elevation of liver enzymes ✗
+[06-28 16:34:44] [baseline] idx=118 pred=None key=F. Upregulation of GLUT4 protein ✗
+[06-28 16:34:47] [baseline] idx=119 pred=I key=I. Hypertension ✓
+[06-28 16:34:51] [baseline] idx=120 pred=A key=D. Inosine monophosphate dehydrogenase ✗
+[06-28 16:35:05] [baseline] idx=124 pred=G key=G. Inhibition of P-glycoprotein ✓
+[06-28 16:35:09] [baseline] idx=121 pred=None key=J. Inhibitor of xanthine oxidase ✗
+[06-28 16:35:10] [baseline] idx=122 pred=None key=A. Carbamazepine ✗
+[06-28 16:35:13] [baseline] idx=123 pred=None key=C. Ceftriaxone ✗
+[06-28 16:35:22] [baseline] idx=126 pred=B key=B. Inhibit peripheral conversion of androgens to estrogen ✓
+[06-28 16:35:23] M3 checkpoint: 125 total
+[06-28 16:35:30] [baseline] idx=128 pred=A key=A. Insulin production by the pancreas is insufficient for exenatide to be effective. ✓
+[06-28 16:35:34] [baseline] idx=125 pred=None key=B. Flumazenil ✗
+[06-28 16:35:35] [baseline] idx=127 pred=None key=D. Dipyridamole ✗
+[06-28 16:35:42] [baseline] idx=131 pred=E key=E. Cross-linking of DNA ✓
+[06-28 16:35:43] [baseline] idx=132 pred=C key=C. Increased glomerular filtration rate, restricted aldosterone release, vascular smooth muscle dilation ✓
+[06-28 16:35:49] [baseline] idx=129 pred=J key=F. Acute pancreatitis ✗
+[06-28 16:35:52] [baseline] idx=133 pred=E key=E. Increased adenylate cyclase activity ✓
+[06-28 16:35:55] [baseline] idx=134 pred=A key=A. Mevalonate ✓
+[06-28 16:35:58] [baseline] idx=136 pred=B key=B. Glycosidic bonds ✓
+[06-28 16:35:58] [baseline] idx=130 pred=C key=C. Pyrazinamide ✓
+[06-28 16:36:12] [baseline] idx=139 pred=D key=D. It reflects a smaller sample size ✓
+[06-28 16:36:13] [baseline] idx=138 pred=D key=D. Principal cells; aldosterone ✓
+[06-28 16:36:13] [baseline] idx=137 pred=C key=D. Na+/Cl- cotransporter in the membranes of epithelial cells in the distal convoluted tubule ✗
+[06-28 16:36:16] [baseline] idx=142 pred=B key=B. Colchicine ✓
+[06-28 16:36:19] [baseline] idx=135 pred=None key=C. Metoprolol ✗
+[06-28 16:36:26] [baseline] idx=144 pred=B key=B. Blocks microtubule formation ✓
+[06-28 16:36:28] [baseline] idx=140 pred=D key=D. Nasal congestion due to a viral infection ✓
+[06-28 16:36:35] [baseline] idx=145 pred=C key=C. Cell wall cross-linking inhibitor ✓
+[06-28 16:36:36] [baseline] idx=146 pred=B key=B. 480 mg ✓
+[06-28 16:36:41] [baseline] idx=143 pred=A key=A. Propofol ✓
+[06-28 16:36:47] [baseline] idx=141 pred=None key=C. Increasing impact of uncompetitive inhibitor ✗
+[06-28 16:36:51] [baseline] idx=149 pred=A key=A. Adenylyl cyclase ✓
+[06-28 16:36:59] [baseline] idx=151 pred=B key=B. Sclerodactyly, esophageal dysmotility and Raynaud's phenomenon ✓
+[06-28 16:37:03] [baseline] idx=148 pred=E key=E. Granulocyte-macrophage colony-stimulating factor ✓
+[06-28 16:37:05] [baseline] idx=147 pred=B key=D. X ✗
+[06-28 16:37:05] M3 checkpoint: 150 total
+[06-28 16:37:07] [baseline] idx=150 pred=A key=B. Nortriptyline ✗
+[06-28 16:37:10] [baseline] idx=153 pred=B key=B. Short stature ✓
+[06-28 16:37:14] [baseline] idx=152 pred=D key=D. This mass will most likely decrease in size or disappear over time ✓
+[06-28 16:37:29] [baseline] idx=155 pred=D key=D. He will have pain with inversion and eversion of his foot. ✓
+[06-28 16:37:32] [baseline] idx=157 pred=C key=C. Systemic hypertension ✓
+[06-28 16:37:40] [baseline] idx=156 pred=None key=B. Myocardial infarction ✗
+[06-28 16:37:46] [baseline] idx=154 pred=None key=B. Wide pulse pressure ✗
+[06-28 16:37:51] [baseline] idx=159 pred=B key=B. Intussusception ✓
+[06-28 16:37:56] [baseline] idx=158 pred=A key=J. Acute tubular necrosis ✗
+[06-28 16:38:07] [baseline] idx=162 pred=G key=A. Pigmented dermatitis ✗
+[06-28 16:38:18] [baseline] idx=160 pred=None key=D.Increased susceptibility to encapsulated bacterial infections  ✗
+[06-28 16:38:18] [baseline] idx=161 pred=A key=F. Reduced cardiac output ✗
+[06-28 16:38:25] [baseline] idx=163 pred=None key=D. external rotation deficit ✗
+[06-28 16:38:34] [baseline] idx=164 pred=A key=G. No clinically significant benefit ✗
+[06-28 16:38:40] [baseline] idx=166 pred=C key=H. Subacute sclerosing panencephalitis ✗
+[06-28 16:38:49] [baseline] idx=165 pred=None key=B. Hepatocellular carcinoma ✗
+[06-28 16:38:57] [baseline] idx=167 pred=None key=E. A patient who is anti-PLA2R antibody positive, with anti-PLA2R antibody titers stable at 55 RU/mL during the observation period ✗
+[06-28 16:39:05] [baseline] idx=168 pred=None key=C. Immune thrombocytopenia ✗
+[06-28 16:39:15] [baseline] idx=170 pred=D key=I. Measure the bone mineral density of the forearm ✗
+[06-28 16:39:16] [baseline] idx=169 pred=D key=J. Normal physical exam without deficits ✗
+[06-28 16:39:29] [baseline] idx=173 pred=B key=A. 60 to 70% ✗
+[06-28 16:39:36] [baseline] idx=172 pred=None key=A. Upper gastrointestinal bleeding, although rare, had a high specificity for predicting impending death. ✗
+[06-28 16:39:37] [baseline] idx=171 pred=None key=G. Submersion time of 6 minutes ✗
+[06-28 16:39:37] [baseline] idx=174 pred=B key=H. Impaired hearing ✗
+[06-28 16:39:56] [baseline] idx=175 pred=A key=I. Speech impairment ✗
+[06-28 16:39:56] M3 checkpoint: 175 total
+[06-28 16:40:04] [baseline] idx=179 pred=A key=A. Last 5 days ✓
+[06-28 16:40:04] [baseline] idx=176 pred=None key=C. Diffuse alveolar hemorrhage is less likely to occur in allogeneic stem cell transplants when compared to autologous stem cell transplants. ✗
+[06-28 16:40:08] [baseline] idx=178 pred=None key=A. Liver cirrhosis ✗
+[06-28 16:40:12] [baseline] idx=180 pred=A key=A. 47,XXX ✓
+[06-28 16:40:12] [baseline] idx=177 pred=None key=H. The patient is likely to become obtunded soon. ✗
+[06-28 16:40:31] [baseline] idx=184 pred=I key=I. Posterior spinal fusion should be performed before curve progresses beyond 30 degrees ✓
+[06-28 16:40:36] [baseline] idx=181 pred=G key=G. Continue lithium monotherapy ✓
+[06-28 16:40:38] [baseline] idx=182 pred=H key=G. Surgical exploration ✗
+[06-28 16:40:38] [baseline] idx=183 pred=J key= J.Recombinant Factor VIII concentrate ✓
+[06-28 16:41:02] [baseline] idx=185 pred=D key=E. The left lateral recumbent position and the left upper extremity pulled inferiorly ✗
+[06-28 16:41:03] [baseline] idx=188 pred=None key=J. Left lateral recumbent, inferior arm pulled caudad ✗
+[06-28 16:41:11] [baseline] idx=186 pred=None key=A. Ensure proper hydration and prescribe a beta-blocker ✗
+[06-28 16:41:16] [baseline] idx=187 pred=None key=F. adduction and internal rotation ✗
+[06-28 16:41:26] [baseline] idx=189 pred=None key=J. The patient has an inhalation rib dysfunction; treatment should be directed to rib 10. ✗
+[06-28 16:41:28] [baseline] idx=190 pred=B key=B. The resident should start carbamazepine ✓
+[06-28 16:41:42] [baseline] idx=191 pred=I key=I. Switching to exclusively soy formula ✓
+[06-28 16:41:47] [baseline] idx=194 pred=I key=I. Measurement of urine metanephrine concentrations ✓
+[06-28 16:41:48] [baseline] idx=192 pred=None key=A. Continue with an ultrasound-guided biopsy of the transplanted kidney ✗
+[06-28 16:41:51] [baseline] idx=193 pred=D key=D. Shoulder radiograph series to assess for chondrolysis ✓
+[06-28 16:42:02] [baseline] idx=197 pred=F key=H. Interruption of warfarin for 3 days prior to the procedure and then restarting warfarin 12-24 hours after completion of cholecystectomy ✗
+[06-28 16:42:12] [baseline] idx=198 pred=H key=H.Radioiodine therapy  ✓
+[06-28 16:42:13] [baseline] idx=196 pred=None key=B.Ipratropium bromide ✗
+[06-28 16:42:13] [baseline] idx=195 pred=None key=E. Apply ice, and initiate treatment with ibuprofen ✗
+[06-28 16:42:19] [baseline] idx=202 pred=A key=A. yes ✓
+[06-28 16:42:24] [baseline] idx=203 pred=C key=A. yes ✗
+[06-28 16:42:24] M3 checkpoint: 200 total
+[06-28 16:42:24] [baseline] idx=201 pred=B key=A. yes ✗
+[06-28 16:42:28] [baseline] idx=199 pred=None key=E. Administer mannitol 1 g/kg intravenously ✗
+[06-28 16:42:30] [baseline] idx=200 pred=J key=J. Lying supine, left hip and knee flexed until resistance is felt ✓
+[06-28 16:42:30] [baseline] idx=204 pred=B key=A. yes ✗
+[06-28 16:42:31] [baseline] idx=205 pred=C key=A. yes ✗
+[06-28 16:42:33] [baseline] idx=206 pred=C key=B. no ✗
+[06-28 16:42:35] [baseline] idx=208 pred=B key=B. no ✓
+[06-28 16:42:35] [baseline] idx=207 pred=B key=B. no ✓
+[06-28 16:42:36] [baseline] idx=209 pred=B key=B. no ✓
+[06-28 16:42:39] [baseline] idx=212 pred=A key=B. no ✗
+[06-28 16:42:39] [baseline] idx=210 pred=B key=B. no ✓
+[06-28 16:42:40] [baseline] idx=211 pred=B key=B. no ✓
+[06-28 16:42:44] [baseline] idx=213 pred=C key=B. no ✗
+[06-28 16:42:54] [baseline] idx=215 pred=B key=B. Perform a root cause analysis of the process ✓
+[06-28 16:42:54] [baseline] idx=217 pred=D key=D. Perform emergency laparotomy ✓
+[06-28 16:42:55] [baseline] idx=216 pred=A key=A. Ask the resident if the patient’s family or the patient has been consented for this procedure ✓
+[06-28 16:43:09] [baseline] idx=220 pred=B key=B. Respect the patient's prior wishes and do not resuscitate ✓
+[06-28 16:43:12] [baseline] idx=218 pred=B key=C. Contact another family member for consent ✗
+[06-28 16:43:12] [baseline] idx=219 pred=D key=D. Accept the patient's wishes and ensure he receives appropriate care. ✓
+[06-28 16:43:16] [baseline] idx=214 pred=None key=A. Hair ✗
+[06-28 16:43:23] [baseline] idx=223 pred=E key=B. Inquire why the patient's daughter feels her mother should not be informed of the diagnosis ✗
+[06-28 16:43:27] [baseline] idx=224 pred=C key=C. Respect the patient's written instructions and do not adminster a blood transfusion ✓
+[06-28 16:43:28] [baseline] idx=222 pred=B key=B. A type 2 error is not possible in this case. ✓
+[06-28 16:43:35] [baseline] idx=221 pred=E key=D. Treat and transfer the patient after she makes a written request ✗
+[06-28 16:43:40] [baseline] idx=226 pred=D key=D. I, II, and IV ✓
+[06-28 16:43:40] M3 checkpoint: 225 total
+[06-28 16:43:40] [baseline] idx=227 pred=A key=B. Explain that the patient does not need the MRI and that it is not appropriate to misrepresent her examination findings ✗
+[06-28 16:43:48] [baseline] idx=228 pred=A key=B. The patient's perception that the physician is uncaring ✗
+[06-28 16:43:55] [baseline] idx=229 pred=D key=D. Help the mother deal with her anger and educate her regarding the potential benefit to her son and others if the father's chromosome studies are done ✓
+[06-28 16:44:00] [baseline] idx=225 pred=None key=D. taboo, folkways, the law, and mores ✗
+[06-28 16:44:11] [baseline] idx=231 pred=G key=G. nonmaleficence overrides autonomy ✓
+[06-28 16:44:15] [baseline] idx=230 pred=A key=A. the neck was treated in simultaneous hyperrotation and extension ✓
+[06-28 16:44:21] [baseline] idx=232 pred=A key=I. Accept the girl's consent as sufficient ✗
+[06-28 16:44:26] [baseline] idx=233 pred=None key=C. Create an action plan to assign responsibilities to prevent similar errors in the future ✗
+[06-28 16:44:28] [baseline] idx=234 pred=H key=H. No one else ✓
+[06-28 16:44:42] [baseline] idx=235 pred=None key=C. Transfuse packed red blood cells to son but not to father ✗
+[06-28 16:44:44] [baseline] idx=238 pred=D key=D. Gregorio, 82-year-old man, conscious, oriented, slight hearing loss but having a fluent conversation. During the last months he began to feel tired during his walks and when performing an electrocardiogram an alteration was visualized that can be compensated by placing a pacemaker. After informing her about the intervention, risks and benefits for her health, she affirms to consent to the intervention although her daughter prefers not to submit to this risk since "it does not affect her daily life so much". ✓
+[06-28 16:44:49] [baseline] idx=237 pred=B key=C. Involve the patient's husband to guide medical care ✗
+[06-28 16:44:50] [baseline] idx=240 pred=A key=A. Cost minimization analysis. ✓
+[06-28 16:44:57] [baseline] idx=236 pred=None key=G. Listen to the patient’s wife’s wishes and withdraw care ✗
+[06-28 16:45:04] [baseline] idx=241 pred=A key=A. Balanced ligamentous tension of the SBS ✓
+[06-28 16:45:09] [baseline] idx=239 pred=C key=C. The elaboration and control of the master formula must be carried out in a room, or in a preparation area, located inside the pharmacy office. ✓
+[06-28 16:45:17] [baseline] idx=242 pred=A key=A. Administration of intravenous hydroxocobalamin ✓
+[06-28 16:45:29] [baseline] idx=243 pred=None key=B. Valproate and olanzapine ✗
+[06-28 16:45:32] [baseline] idx=244 pred=J key=J. < 8 ✓
+[06-28 16:45:36] [baseline] idx=245 pred=G key=G. Tracheostomy ✓
+[06-28 16:45:44] [baseline] idx=248 pred=A key=A. Endoscopic retrograde cholangiopancreatography ✓
+[06-28 16:45:47] [baseline] idx=246 pred=None key=D. Administer recombinant human factor VIIa ✗
+[06-28 16:45:55] [baseline] idx=251 pred=A key=A. Reassurance ✓
+[06-28 16:46:01] [baseline] idx=247 pred=None key=H. Rinse the finger in normal saline, wrap the finger in moist gauze, put in a plastic bag, and place the bag in ice water ✗
+[06-28 16:46:08] [baseline] idx=249 pred=None key=J. Dietary and lifestyle modification ✗
+[06-28 16:46:08] M3 checkpoint: 250 total
+[06-28 16:46:09] [baseline] idx=250 pred=None key=I. Observe ✗
+[06-28 16:46:10] [baseline] idx=252 pred=D key=D. Urine dipstick in the morning and in the afternoon ✓
+[06-28 16:46:19] [baseline] idx=253 pred=D key=D. Gastrografin swallow ✓
+[06-28 16:46:29] [baseline] idx=254 pred=A key=B. Obtain a swallowing evaluation ✗
+[06-28 16:46:32] [baseline] idx=256 pred=A key=D. Refer the patient to a child psychiatrist ✗
+[06-28 16:46:32] [baseline] idx=255 pred=None key=B. Adjusting her medication regimen ✗
+[06-28 16:46:43] [baseline] idx=258 pred=B key=J. Start a dihydropyridine calcium channel blocker ✗
+[06-28 16:46:45] [baseline] idx=259 pred=E key=E. Continue the current medication regimen ✓
+[06-28 16:46:46] [baseline] idx=260 pred=A key=J. Discontinue birth control and place an intrauterine device ✗
+[06-28 16:46:48] [baseline] idx=257 pred=E key=B. Reassure the patient and schedule a follow-up appointment ✗
+[06-28 16:46:50] [baseline] idx=261 pred=F key=J. NAAT for C. trachomatis and N. gonorrhea ✗
+[06-28 16:47:02] [baseline] idx=262 pred=A key=I. Refer the child to the emergency department for further evaluation with consultation from a metabolic specialist ✗
+[06-28 16:47:04] [baseline] idx=264 pred=D key=D. Continue with current medications ✓
+[06-28 16:47:14] [baseline] idx=265 pred=J key=J. Administer the Ages & Stages Questionnaire ✓
+[06-28 16:47:14] [baseline] idx=263 pred=C key=D. Cystoscopy ✗
+[06-28 16:47:34] [baseline] idx=267 pred=None key=I. Encourage patient to familiarize close peers with asthma ✗
+[06-28 16:47:36] [baseline] idx=266 pred=None key=C. Refer for carotid duplex ultrasound ✗
+[06-28 16:47:42] [baseline] idx=269 pred=None key=G. TSH and renal function tests ✗
+[06-28 16:47:46] [baseline] idx=268 pred=J key=J. Proceed directly to surgery ✓
+[06-28 16:48:04] [baseline] idx=273 pred=D key=A. Adopt ✗
+[06-28 16:48:05] [baseline] idx=272 pred=A key=A. Interview the mother to evaluate for possible sexual abuse ✓
+[06-28 16:48:06] [baseline] idx=271 pred=H key=J. Perform sigmoidoscopy with biopsy ✗
+[06-28 16:48:07] [baseline] idx=270 pred=J key=J. Esophagogastroduodenoscopy ✓
+[06-28 16:48:30] [baseline] idx=275 pred=D key=C. Obtain intravenous access ✗
+[06-28 16:48:32] [baseline] idx=276 pred=A key=E. Colonoscopy ✗
+[06-28 16:48:32] M3 checkpoint: 275 total
+[06-28 16:48:35] [baseline] idx=274 pred=None key=D. Change diuretics ✗
+[06-28 16:48:41] [baseline] idx=277 pred=H key=C. Verbal communication of imaging results between the providers via phone ✗
+[06-28 16:48:47] [baseline] idx=280 pred=None key=B. Weekly determination of ß-HCG until three consecutive ones are negative, then monthly determination until the end of the year. ✗
+[06-28 16:48:47] [baseline] idx=279 pred=J key=L ✗
+[06-28 16:49:02] [baseline] idx=278 pred=D key=E. Obtain an echocardiogram ✗
+[06-28 16:49:15] [baseline] idx=282 pred=C key=H. Bilaterally flexed sacrum about the middle transverse axis ✗
+[06-28 16:49:16] [baseline] idx=281 pred=None key=G. Anteriorly rotated clavicle ✗
+[06-28 16:49:24] [baseline] idx=283 pred=None key=A. Coxa valga ✗
+[06-28 16:49:26] [baseline] idx=284 pred=F key=D. L2–3 nerve-root compression ✗
+[06-28 16:49:44] [baseline] idx=286 pred=D key=H. Lateral strain ✗
+[06-28 16:49:52] [baseline] idx=285 pred=H key=D. Irritable bowel syndrome ✗
+[06-28 16:50:04] [baseline] idx=288 pred=None key=A. ESLRL ✗
+[06-28 16:50:26] [baseline] idx=289 pred=None key=E. Cutaneous anthrax ✗
+[06-28 16:50:27] [baseline] idx=290 pred=B key=G. Physiologic ovarian cyst ✗
+[06-28 16:50:30] [baseline] idx=291 pred=B key=J. Decreased fractional excretion of sodium ✗
+[06-28 16:50:57] [baseline] idx=292 pred=None key=A. Absent urine bilirubin ✗
+[06-28 16:51:01] [baseline] idx=293 pred=None key=H. Midcycle pain ✗
+[06-28 16:51:01] [baseline] idx=294 pred=None key=B. Medication overdose ✗
+[06-28 16:51:28] [baseline] idx=297 pred=None key=D. anterior fibular head dysfunction ✗
+[06-28 16:51:32] [baseline] idx=295 pred=H key=E. Distended gallbladder ✗
+[06-28 16:51:32] [baseline] idx=296 pred=C key=J. Interstitial giant cells containing cholesterol clefts ✗
+[06-28 16:51:51] [baseline] idx=299 pred=A key=G. Exhalation dysfunction of ribs 2 through 5 ✗
+[06-28 16:51:57] [baseline] idx=300 pred=C key=J. Colonic angiodysplasia ✗
+[06-28 16:52:01] [baseline] idx=298 pred=None key=D. Maternal familial hypocalciuric hypercalcemia ✗
+[06-28 16:52:07] [baseline] idx=302 pred=C key=C. 27 minutes ✓
+[06-28 16:52:08] M3 checkpoint: 300 total
+[06-28 16:52:10] [baseline] idx=301 pred=C key=C. 24-26 mm Hg ✓
+[06-28 16:52:15] [baseline] idx=305 pred=A key=A. procedural ✓
+[06-28 16:52:16] [baseline] idx=304 pred=B key=B. Temperature sensation, pain sensation ✓
+[06-28 16:52:22] [baseline] idx=303 pred=C key=C. Decreased melatonin ✓
+[06-28 16:52:24] [baseline] idx=307 pred=B key=B. The blastomere with the gray crescent will form a complete, but small, embryo. ✓
+[06-28 16:52:33] [baseline] idx=306 pred=D key=D. tonic labyrinthine reflex ✓
+[06-28 16:52:37] [baseline] idx=308 pred=A key=A. Cricothyroid muscle ✓
+[06-28 16:52:41] [baseline] idx=309 pred=E key=E. A reduction in diastolic filling time ✓
+[06-28 16:52:41] [baseline] idx=310 pred=A key=A. Arcuate fasciculus ✓
+[06-28 16:52:48] [baseline] idx=313 pred=E key=E. 6th pharyngeal arch ✓
+[06-28 16:52:50] [baseline] idx=311 pred=E key=E. Power stroke ✓
+[06-28 16:52:56] [baseline] idx=315 pred=B key=B. Prevent excess anterior translation of the tibia relative to the femur ✓
+[06-28 16:52:56] [baseline] idx=312 pred=D key=D. Superomedial quadrant of the right buttock ✓
+[06-28 16:53:02] [baseline] idx=316 pred=E key=E. Runs posteriorly from the medial femoral condyle ✓
+[06-28 16:53:05] [baseline] idx=314 pred=E key=E. Infundibulopelvic ligament ✓
+[06-28 16:53:13] [baseline] idx=319 pred=D key=D. Left gastroepiploic artery ✓
+[06-28 16:53:20] [baseline] idx=317 pred=None key=B. Gastrohepatic ligament ✗
+[06-28 16:53:21] [baseline] idx=320 pred=C key=C. Initiation of abduction ✓
+[06-28 16:53:29] [baseline] idx=321 pred=E key=E. 20% ✓
+[06-28 16:53:34] [baseline] idx=322 pred=A key=A. paralysis of the facial muscles. ✓
+[06-28 16:53:35] [baseline] idx=318 pred=None key=E. Ventral thalamus ✗
+[06-28 16:53:37] [baseline] idx=323 pred=B key=B. 70% ✓
+[06-28 16:53:52] [baseline] idx=325 pred=C key=C. The pressure in the knee is greater than the pressure in the neck because of the increase in pressure head ✓
+[06-28 16:54:06] [baseline] idx=326 pred=A key=D. Isoleucine ✗
+[06-28 16:54:08] [baseline] idx=324 pred=C key=D. Meiosis ✗
+[06-28 16:54:08] M3 checkpoint: 325 total
+[06-28 16:54:10] [baseline] idx=327 pred=A key=D. little effect on venous pressure and a large increase in arterial pressure ✗
+[06-28 16:54:39] [baseline] idx=328 pred=E key=B. Water flows into the gut from the mucosa, during digestion of starch and protein, in order to reduce luminal osmolality ✗
+[06-28 16:54:40] [baseline] idx=329 pred=None key=F. Mu receptor ✗
+[06-28 16:54:41] [baseline] idx=330 pred=None key=A. 115° ✗
+[06-28 16:54:58] [baseline] idx=332 pred=E key=E. T1-T4 ✓
+[06-28 16:54:59] [baseline] idx=333 pred=H key=G. First rib near the clavicle ✗
+[06-28 16:55:02] [baseline] idx=331 pred=A key=I. 18° ✗
+[06-28 16:55:35] [baseline] idx=334 pred=None key=D. Two inches superior and 1 inch lateral to the umbilicus ✗
+[06-28 16:55:37] [baseline] idx=335 pred=A key=H. hip extension, knee flexion ✗
+[06-28 16:55:42] [baseline] idx=336 pred=None key=D. Large tuberosity on shaft ✗
+[06-28 16:56:06] [baseline] idx=337 pred=None key=E. Weakened transversalis fascia ✗
+[06-28 16:56:06] [baseline] idx=339 pred=C key=J. Superior transverse axis ✗
+[06-28 16:56:20] [baseline] idx=338 pred=None key=J. Pacinian corpuscles ✗
+[06-28 16:56:28] [baseline] idx=341 pred=F key=I. Longitudinal axis ✗
+[06-28 16:56:33] [baseline] idx=340 pred=C key=D. Sidebending ✗
+[06-28 16:56:50] [baseline] idx=344 pred=H key=H. 480 mL ✓
+[06-28 16:56:55] [baseline] idx=342 pred=None key=E. Iliolumbar ligament ✗
+[06-28 16:57:06] [baseline] idx=343 pred=None key=F. Index finger MCP hyperextension ✗
+[06-28 16:57:22] [baseline] idx=345 pred=None key=H. a true rib that primarily moves in a bucket handle motion ✗
+[06-28 16:57:28] [baseline] idx=346 pred=None key=D. Sacral canal ✗
+[06-28 16:57:29] [baseline] idx=347 pred=E key=G. CN IX ✗
+[06-28 16:57:37] [baseline] idx=349 pred=D key=D. Total peripheral resistance ✓
+[06-28 16:57:38] [baseline] idx=350 pred=A key=A. Amygdala ✓
+[06-28 16:57:48] [baseline] idx=352 pred=D key=D. Cryptosporidium hominis ✓
+[06-28 16:57:53] [baseline] idx=348 pred=None key=C. Branch of the thyrocervical trunk ✗
+[06-28 16:57:54] M3 checkpoint: 350 total
+[06-28 16:57:55] [baseline] idx=351 pred=C key=C. PCV ✓
+[06-28 16:58:03] [baseline] idx=354 pred=C key=C. Von gierke disease ✓
+[06-28 16:58:04] [baseline] idx=355 pred=D key=D. Hemolytic jaundice ✓
+[06-28 16:58:06] [baseline] idx=353 pred=D key=D. Alport syndrome ✓
+[06-28 16:58:14] [baseline] idx=358 pred=B key=B. TV endocarditis due to Staph. aureus ✓
+[06-28 16:58:15] [baseline] idx=357 pred=A key=A. Preterm labour ✓
+[06-28 16:58:23] [baseline] idx=360 pred=C key=C. Pre–renal Azotemia ✓
+[06-28 16:58:25] [baseline] idx=356 pred=A key=B. Kawasaki disease ✗
+[06-28 16:58:29] [baseline] idx=361 pred=A key=A. Alport syndrome ✓
+[06-28 16:58:39] [baseline] idx=363 pred=A key=A. Posterolatilal pa of anterior cruciate ligament ✓
+[06-28 16:58:42] [baseline] idx=359 pred=A key=D. Excessive intake of sodium ✗
+[06-28 16:58:54] [baseline] idx=365 pred=C key=C. Sagittal sinus thrombosis ✓
+[06-28 16:58:55] [baseline] idx=364 pred=D key=D. Midline posterior fossa tumour ✓
+[06-28 16:58:56] [baseline] idx=362 pred=None key=A. Jaundice due to choledocholithiasis ✗
+[06-28 16:59:01] [baseline] idx=366 pred=D key=D. Coxsackie ✓
+[06-28 16:59:10] [baseline] idx=367 pred=D key=D. Carotico-cavernous fistula ✓
+[06-28 16:59:17] [baseline] idx=369 pred=B key=B. Anti-dsDNA antibodies ✓
+[06-28 16:59:23] [baseline] idx=368 pred=A key=A. Chalazion ✓
+[06-28 16:59:26] [baseline] idx=370 pred=C key=C. Heart sound before S1 ✓
+[06-28 16:59:29] [baseline] idx=371 pred=B key=B. 5p ✓
+[06-28 16:59:34] [baseline] idx=374 pred=A key=A. 5 ✓
+[06-28 16:59:47] [baseline] idx=372 pred=None key=A. Anterior spinal artery ✗
+[06-28 16:59:52] [baseline] idx=375 pred=E key=E. Anti-B antibodies ✓
+[06-28 16:59:53] [baseline] idx=287 pred=None key=H. Unilateral facial anhidrosis ✗
+[06-28 16:59:58] [baseline] idx=376 pred=C key=C. Bartter's syndrome ✓
+[06-28 16:59:58] M3 checkpoint: 375 total
+[06-28 16:59:59] [baseline] idx=373 pred=None key=E. Staphylococcus aureus ✗
+[06-28 17:00:06] [baseline] idx=378 pred=B key=B. Elbow flexion ✓
+[06-28 17:00:08] [baseline] idx=377 pred=D key=D. Gram-negative, oxidase-positive bacilli ✓
+[06-28 17:00:17] [baseline] idx=380 pred=A key=B. Inflammation of the gallbladder wall ✗
+[06-28 17:00:24] [baseline] idx=379 pred=A key=A. Monochorionic-diamniotic monozygotic ✓
+[06-28 17:00:37] [baseline] idx=381 pred=None key=B. Increased peak tricuspid regurgitation ✗
+[06-28 17:00:40] [baseline] idx=382 pred=None key=A. Systolic murmur that increases with hand clenching ✗
+[06-28 17:00:45] [baseline] idx=385 pred=D key=D. Night blindness ✓
+[06-28 17:00:45] [baseline] idx=383 pred=E key=E. Anti-glomerular basement membrane antibodies ✓
+[06-28 17:00:58] [baseline] idx=384 pred=None key=E. Factor XII ✗
+[06-28 17:01:07] [baseline] idx=386 pred=None key=A. Gastroenteritis ✗
+[06-28 17:01:11] [baseline] idx=388 pred=None key=C. Hyperpigmentation of the liver ✗
+[06-28 17:01:16] [baseline] idx=387 pred=None key=E. Ages 2 months, 6 months, and 12 months ✗
+[06-28 17:01:21] [baseline] idx=389 pred=D key=D. Tartrate-resistant acid phosphatase ✓
+[06-28 17:01:28] [baseline] idx=390 pred=A key=A. Papillary carcinoma ✓
+[06-28 17:01:33] [baseline] idx=393 pred=A key=C. Melanoma ✗
+[06-28 17:01:36] [baseline] idx=391 pred=None key=A. Hemolytic anemia and ataxia ✗
+[06-28 17:01:40] [baseline] idx=394 pred=E key=E. Factitious disorder imposed on another ✓
+[06-28 17:01:41] [baseline] idx=392 pred=None key=C. pH 7.36, PCO2 22 mmHg, and HCO3- 16 mEq/L ✗
+[06-28 17:01:48] [baseline] idx=395 pred=E key=E. Pulmonic valve stenosis ✓
+[06-28 17:01:52] [baseline] idx=398 pred=E key=E. 46XX ✓
+[06-28 17:01:53] [baseline] idx=397 pred=A key=C. Minimal change disease ✗
+[06-28 17:01:55] [baseline] idx=396 pred=C key=C. PCR positive for Chlamydia trachomatis ✓
+[06-28 17:01:58] [baseline] idx=401 pred=A key=C. maybe ✗
+[06-28 17:02:01] [baseline] idx=402 pred=B key=C. maybe ✗
+[06-28 17:02:01] M3 checkpoint: 400 total
+[06-28 17:02:05] [baseline] idx=399 pred=A key=E. Right main ✗
+[06-28 17:02:23] [baseline] idx=403 pred=None key=D. OPV 3 doses, 3 IPV 3 DPI : Hep-B ✗
+[06-28 17:02:24] [baseline] idx=400 pred=None key=A. Cardiac contusion ✗
+[06-28 17:02:29] [baseline] idx=405 pred=B key=B. Changing to a soy based formula ✓
+[06-28 17:02:31] [baseline] idx=404 pred=None key=A. 60 ✗
+[06-28 17:02:40] [baseline] idx=406 pred=C key=C. Administer DTaP, HBV, HiB, PCV 13, poliovirus, and rotavirus vaccines ✓
+[06-28 17:02:41] [baseline] idx=408 pred=B key=B. Using mortality rates in the analysis ✓
+[06-28 17:02:45] [baseline] idx=407 pred=A key=A. Aldosterone excess ✓
+[06-28 17:02:48] [baseline] idx=409 pred=B key=B. PPV decreases, NPV increases ✓
+[06-28 17:03:01] [baseline] idx=410 pred=A key=A. The association is not statistically significant, and low education is not a risk factor. ✓
+[06-28 17:03:16] [baseline] idx=413 pred=B key=D. Decreased rate of erectile dysfunction. ✗
+[06-28 17:03:17] [baseline] idx=411 pred=None key=C. Iodine deficiency ✗
+[06-28 17:03:18] [baseline] idx=412 pred=None key=D. History in the previous pregnancy ✗
+[06-28 17:03:32] [baseline] idx=414 pred=None key=B. Streptococcus pneumoniae ✗
+[06-28 17:03:34] [baseline] idx=417 pred=C key=E. Vitamin E ✗
+[06-28 17:03:43] [baseline] idx=415 pred=None key=E. Staphylococcus aureus ✗
+[06-28 17:03:55] [baseline] idx=416 pred=A key=B. Return the child to the classroom, advising them to avoid head-to-head contact with others ✗
+[06-28 17:03:56] [baseline] idx=418 pred=None key=D. 2/85 ✗
+[06-28 17:03:57] [baseline] idx=420 pred=I key=I. Nicotine ✓
+[06-28 17:04:11] [baseline] idx=419 pred=None key=J. Staphylococcus aureus ✗
+[06-28 17:04:13] [baseline] idx=423 pred=A key=D. Aromatic amine exposure ✗
+[06-28 17:04:15] [baseline] idx=421 pred=C key=B. Squamous cell carcinomas that arise in the upper lip have a similar prognosis to those originating in the lower lip ✗
+[06-28 17:04:21] [baseline] idx=422 pred=A key=D. Egg salad ✗
+[06-28 17:04:37] [baseline] idx=426 pred=J key=J. 87 ✓
+[06-28 17:04:41] [baseline] idx=424 pred=I key=B. Maternal preeclampsia ✗
+[06-28 17:04:41] M3 checkpoint: 425 total
+[06-28 17:04:43] [baseline] idx=425 pred=None key=C. Pretreatment with IV rasburicase ✗
+[06-28 17:04:44] [baseline] idx=427 pred=A key=A. Prioritizing condom catheter over indwelling cather ✓
+[06-28 17:05:06] [baseline] idx=429 pred=None key=A. Amlodipine ✗
+[06-28 17:05:08] [baseline] idx=430 pred=F key=F. Exercise and reduce alcohol intake ✓
+[06-28 17:05:12] [baseline] idx=428 pred=None key=G. Diving instructor ✗
+[06-28 17:05:18] [baseline] idx=431 pred=None key=B. Quaternary ✗
+[06-28 17:05:37] [baseline] idx=433 pred=None key=E. Vaccination to induce a B-cell response with moderate level affinity antibodies ✗
+[06-28 17:05:38] [baseline] idx=432 pred=None key=E. Prevalence indeterminate and incidence increases ✗
+[06-28 17:05:43] [baseline] idx=434 pred=None key=F. Intravenous hydration ✗
+[06-28 17:05:47] [baseline] idx=435 pred=H key=H. Diabetes ✓
+[06-28 17:06:06] [baseline] idx=436 pred=B key=B. Pertussis prophylaxis ✓
+[06-28 17:06:07] [baseline] idx=437 pred=None key=J. Use of a dental dam ✗
+[06-28 17:06:12] [baseline] idx=438 pred=D key=D. Cohort study ✓
+[06-28 17:06:16] [baseline] idx=439 pred=None key=I. This child is at risk of seizures, coma and death ✗
+[06-28 17:06:27] [baseline] idx=440 pred=A key=E. Immediate screening for colon cancer ✗
+[06-28 17:06:36] [baseline] idx=444 pred=C key=H. I, II, III, IV ✗
+[06-28 17:06:37] [baseline] idx=441 pred=None key=E. Storing epinephrine preparations for intramuscular injection in autoinjectors ✗
+[06-28 17:06:40] [baseline] idx=442 pred=I key=I. Sharing water-bottles with teammates ✓
+[06-28 17:06:44] [baseline] idx=443 pred=None key=G. Tobacco exposure ✗
+[06-28 17:06:52] [baseline] idx=448 pred=B key=B. 15% ✓
+[06-28 17:06:55] [baseline] idx=445 pred=I key=E. Individuals without lymphoma from the local outpatient clinic ✗
+[06-28 17:07:02] [baseline] idx=450 pred=D key=D. Case-control ✓
+[06-28 17:07:05] [baseline] idx=449 pred=D key=D. Alcohol use disorder ✓
+[06-28 17:07:07] [baseline] idx=446 pred=None key=A. Pneumococcal vaccine ✗
+[06-28 17:07:09] [baseline] idx=447 pred=None key=A. Age of menopause ✗
+[06-28 17:07:09] M3 checkpoint: 450 total
+[06-28 17:07:15] [baseline] idx=453 pred=A key=B. 16 ✗
+[06-28 17:07:24] [baseline] idx=454 pred=E key=E. Increased Aa gradient, decreased surface area for diffusion, increased diffusion distance ✓
+[06-28 17:07:27] [baseline] idx=452 pred=C key=C. Conversion of aminolevulinic acid to porphobilinogen ✓
+[06-28 17:07:28] [baseline] idx=451 pred=D key=D. Hypomagnesemia ✓
+[06-28 17:07:30] [baseline] idx=455 pred=A key=A. Decreased production of PGE2 ✓
+[06-28 17:07:41] [baseline] idx=456 pred=A key=A. After somatic hypermutation, only a small amount of B cell antigen receptors have increased affinity for the antigen ✓
+[06-28 17:07:51] [baseline] idx=458 pred=None key=E. Inability of the distal tubule to secrete H+ ✗
+[06-28 17:07:55] [baseline] idx=457 pred=F key=G. Multiple gestation ✗
+[06-28 17:07:57] [baseline] idx=459 pred=None key=G.  The medullary thick ascending limb is most susceptible to hypoxic injury due to its high metabolic demands ✗
+[06-28 17:08:13] [baseline] idx=460 pred=None key=B. Left-to-right shunting across a large extracardiac shunt ✗
+[06-28 17:08:16] [baseline] idx=462 pred=J key=J. Sodium channels of respiratory epithelial cells ✓
+[06-28 17:08:22] [baseline] idx=463 pred=None key=D. Preload: decreased, cardiac contractility: decreased, afterload: increased ✗
+[06-28 17:08:23] [baseline] idx=461 pred=None key=J. Prevents depolarization of Na+ channels ✗
+[06-28 17:08:38] [baseline] idx=464 pred=None key=C. Ischemic heart disease ✗
+[06-28 17:08:38] [baseline] idx=466 pred=J key=D. Lymph nodes ✗
+[06-28 17:08:38] [baseline] idx=467 pred=H key=H. Exopolysaccharides ✓
+[06-28 17:08:39] [baseline] idx=465 pred=None key=A. 24,25-Dihydroxycholecalciferol ✗
+[06-28 17:08:53] [baseline] idx=471 pred=D key=D. Ribosome Synthesis ✓
+[06-28 17:09:01] [baseline] idx=468 pred=G key=C. Organic acids competing with urate for tubular secretion ✗
+[06-28 17:09:04] [baseline] idx=469 pred=None key=B. Memory T cell ✗
+[06-28 17:09:04] [baseline] idx=470 pred=None key=I. Immature microbiome ✗
+[06-28 17:09:12] [baseline] idx=475 pred=G key=G. Thymine ✓
+[06-28 17:09:19] [baseline] idx=472 pred=None key=H. Infection with polyomaviruses usually happens in childhood, and specific antibody to one or both human polyomaviruses are present in 70–80% of the adult population ✗
+[06-28 17:09:19] [baseline] idx=474 pred=C key=C. Lipoic acid ✓
+[06-28 17:09:29] [baseline] idx=473 pred=None key=C. Entrapment of megakaryocytes in the nail bed ✗
+[06-28 17:09:29] M3 checkpoint: 475 total
+[06-28 17:09:38] [baseline] idx=476 pred=None key=I. Deficiency of 21β-hydroxylase ✗
+[06-28 17:09:38] [baseline] idx=478 pred=E key=E. Hypothalamic injury ✓
+[06-28 17:09:39] [baseline] idx=477 pred=A key=F. Thymic stromal lymphoprotein ✗
+[06-28 17:09:47] [baseline] idx=480 pred=C key=C. There is a conversion to fibrocartilage ✓
+[06-28 17:09:56] [baseline] idx=483 pred=B key=B. Upslope of T-wave ✓
+[06-28 17:09:58] [baseline] idx=479 pred=None key=J. Destruction of basal cells of the skin by cytotoxic T-cells ✗
+[06-28 17:10:04] [baseline] idx=482 pred=None key=E. Aspartate ✗
+[06-28 17:10:05] [baseline] idx=481 pred=None key=I. A narrowing of the superficial femoral artery ✗
+[06-28 17:10:13] [baseline] idx=487 pred=D key=D. Glucosylation of Rho family GTPases ✓
+[06-28 17:10:19] [baseline] idx=488 pred=H key=C. Parathyroid hormone-related peptide (PTHrP) ✗
+[06-28 17:10:20] [baseline] idx=485 pred=F key=F. Golgi apparatus ✓
+[06-28 17:10:26] [baseline] idx=484 pred=None key=B. Increased oxygen diffusion into the capillaries ✗
+[06-28 17:10:30] [baseline] idx=486 pred=None key=H. Absent thymic shadow on chest X-ray ✗
+[06-28 17:10:43] [baseline] idx=491 pred=J key=J. Syncytial cells ✓
+[06-28 17:10:44] [baseline] idx=489 pred=None key=I. Lipoprotein lipase ✗
+[06-28 17:10:45] [baseline] idx=490 pred=None key=C. CD4+ T cell-mediated intimal smooth muscle proliferation ✗
+[06-28 17:10:56] [baseline] idx=495 pred=E key=E. Factor X ✓
+[06-28 17:10:57] [baseline] idx=493 pred=G key=A. Hormone-mediated fibrous replacement of bone ✗
+[06-28 17:10:57] [baseline] idx=492 pred=None key=I. Missense mutation in the UGT1A1 gene ✗
+[06-28 17:11:05] [baseline] idx=494 pred=I key=I. Graft tear due to acellularity ✓
+[06-28 17:11:11] [baseline] idx=498 pred=F key=F. Oxidation of hemoglobin ✓
+[06-28 17:11:18] [baseline] idx=496 pred=D key=A. Excessive mobilization of fatty acids ✗
+[06-28 17:11:21] [baseline] idx=497 pred=E key=D. Increased glomerular filtration ✗
+[06-28 17:11:31] [baseline] idx=500 pred=B key=B. Positive linear relationship between GM-CSF and Weeke grey matter score ✓
+[06-28 17:11:34] [baseline] idx=499 pred=None key=A. Mitotic recombination ✗
+[06-28 17:11:34] M3 checkpoint: 500 total
+[06-28 17:11:35] M3 Done! 500 total

@@ -1,0 +1,125 @@
+Loading...
+Running 5 models simultaneously
+
+
+============================================================
+  deepseek-v4-flash
+============================================================
+
+============================================================
+  step-3.7-flash
+============================================================
+============================================================
+  glm-5.2
+============================================================
+
+
+============================================================
+  Baichuan-M3
+============================================================
+
+============================================================
+  V25
+============================================================
+  [deepseek-v4-flash-T] 214 items,3w,max30r
+  [V25-T] 189 items,3w,max30r
+  [Baichuan-M3-T] 201 items,3w,max30r
+  [step-3.7-flash-T] 192 items,15w,max30r
+  [glm-5.2-T] 339 items,5w,max30r
+    [deepseek-v4-flash-T] 1 missing
+    [deepseek-v4-flash-T] R2:1
+  [deepseek-v4-flash-T] DONE:81/214=37.9%(214 ans)
+  [deepseek-v4-flash-M] 207 items,3w,max30r
+    [Baichuan-M3-T] 3 missing
+    [Baichuan-M3-T] R2:3
+    [Baichuan-M3-T] 1 missing
+    [Baichuan-M3-T] R3:1
+    [Baichuan-M3-T] 1 missing
+    [Baichuan-M3-T] R4:1
+  [Baichuan-M3-T] DONE:79/201=39.3%(201 ans)
+  [Baichuan-M3-M] 177 items,3w,max30r
+    [step-3.7-flash-T] 21 missing
+    [step-3.7-flash-T] R2:21
+    [step-3.7-flash-T] 3 missing
+    [step-3.7-flash-T] R3:3
+    [step-3.7-flash-T] 1 missing
+    [step-3.7-flash-T] R4:1
+  [deepseek-v4-flash-M] DONE:66/207=31.9%(207 ans)
+
+  ✅ deepseek-v4-flash: test=37.9%(214/214) mbt=31.9%(207/207)
+    [step-3.7-flash-T] 1 missing
+    [step-3.7-flash-T] R5:1
+    [step-3.7-flash-T] 1 missing
+    [step-3.7-flash-T] R6:1
+    [Baichuan-M3-M] 10 missing
+    [Baichuan-M3-M] R2:10
+    [Baichuan-M3-M] 3 missing
+    [Baichuan-M3-M] R3:3
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R4:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R5:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R6:2
+    [step-3.7-flash-T] 1 missing
+    [step-3.7-flash-T] R7:1
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R7:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R8:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R9:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R10:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R11:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R12:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R13:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R14:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R15:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R16:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R17:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R18:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R19:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R20:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R21:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R22:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R23:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R24:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R25:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R26:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R27:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R28:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R29:2
+    [Baichuan-M3-M] 2 missing
+    [Baichuan-M3-M] R30:2
+    [Baichuan-M3-M] 2 missing
+  [Baichuan-M3-M] DONE:26/177=14.7%(175 ans)
+
+  ✅ Baichuan-M3: test=39.3%(201/201) mbt=14.7%(175/177)
+    [step-3.7-flash-T] 1 missing
+    [step-3.7-flash-T] R8:1
+    [step-3.7-flash-T] 1 missing
+    [step-3.7-flash-T] R9:1
+    [step-3.7-flash-T] 1 missing
+    [step-3.7-flash-T] R10:1
+    [step-3.7-flash-T] 1 missing
+    [step-3.7-flash-T] R11:1

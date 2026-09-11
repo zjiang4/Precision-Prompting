@@ -12,10 +12,10 @@ This repository contains the data and prompts for the Precision Prompting framew
 |--------|-------|
 | Models evaluated | 14 |
 | Mean ICD-Bench test gain | **+10.9 pp** (95% CI 7.8–14.8) |
-| Mean MedThink-Bench gain | **+11.5 pp** (95% CI 7.5–16.5) |
-| Mean test flip rate | 33.2% |
+| Mean MedThink-Bench gain | **+11.5 pp** (95% CI 7.5–16.4) |
+| Mean test flip rate | 33.1% |
 | Mean MBT flip rate | 23.9% |
-| Spearman ρ (baseline vs gain) | −0.73 (P = 0.003) |
+| Spearman ρ (baseline vs gain) | −0.72 (P = 0.004) |
 | Cross-benchmark Pearson r | 0.56 (P = 0.036) |
 
 ## Repository Structure
@@ -23,12 +23,12 @@ This repository contains the data and prompts for the Precision Prompting framew
 ```
 ├── prompts/                          # GPT-5.4-generated personalized system prompts
 │   ├── gpt-oss-120b.txt
-│   ├── mistral-small-4-119b-2603.txt
-│   ├── diffusiongemma-26b-a4b-it.txt
+│   ├── mistral-small-24b.txt
+│   ├── diffusiongemma-26b.txt
 │   ├── deepseek-v4-flash.txt
 │   ├── step-3.7-flash.txt
-│   ├── glm-5.2.txt
-│   ├── qwen3.5-122b-a10b.txt
+│   ├── GLM-5.2.txt
+│   ├── qwen3.5-122b.txt
 │   ├── qwen3.6-flash.txt
 │   ├── minimax-m2.5.txt
 │   ├── Baichuan-M3.txt
@@ -112,11 +112,11 @@ GPT-5.4 error classification distribution per model:
 | 4 | deepseek-v4-flash | 70.9% | +11.0 pp | +13.2 pp |
 | 5 | Baichuan-M3 | 72.7% | +10.7 pp | +6.6 pp |
 | 6 | mistral-small-24b | 70.6% | +10.2 pp | +11.4 pp |
-| 7 | minimax-m2.5 | 70.7% | +7.6 pp | +4.6 pp |
+| 7 | minimax-m2.5 | 70.5% | +7.6 pp | +4.6 pp |
 | 8 | step-3.7-flash | 73.9% | +7.5 pp | +7.8 pp |
 | 9 | MedSeek | 71.8% | +7.5 pp | +5.6 pp |
 | 10 | medpsy-4b | 69.8% | +7.3 pp | +6.4 pp |
-| 11 | qwen3.6-flash | 72.4% | +7.1 pp | +4.8 pp |
+| 11 | qwen3.6-flash | 71.7% | +7.1 pp | +4.8 pp |
 | 12 | hulu-med-flash-27b | 74.3% | +6.7 pp | +34.0 pp |
 | 13 | gpt-oss-120b | 71.4% | +6.0 pp | +5.0 pp |
 | 14 | GPT-5 | 75.2% | +4.2 pp | +4.6 pp |
@@ -124,10 +124,10 @@ GPT-5.4 error classification distribution per model:
 ## Citation
 
 ```bibtex
-@article{jiang2026precision,
+@article{jiang2025precision,
   title={Precision Prompting: Model-Specific Error-Driven Prompt Optimization Improves Diagnostic Reasoning Across Large Language Models},
   author={Jiang, Zhehan},
   note={Manuscript under review},
-  year={2026}
+  year={2025}
 }
 ```

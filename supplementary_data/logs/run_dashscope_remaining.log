@@ -1,0 +1,64 @@
+============================================================
+DashScope remaining models (fixed API calls)
+============================================================
+glm-5.2: retrying 464 nulls with 8 workers...
+  glm-5.2: 100/464, 100 success
+  glm-5.2: 200/464, 200 success
+  glm-5.2: 300/464, 300 success
+  glm-5.2: 400/464, 400 success
+  glm-5.2: 464/464, 464 success
+glm-5.2: 464/464 fixed, 0 remain
+glm-5.2 medbenchthink: resuming, 0/500 done
+  glm-5.2 medbenchthink: 100/500, 100 success
+  glm-5.2 medbenchthink: 200/500, 200 success
+  glm-5.2 medbenchthink: 300/500, 300 success
+  glm-5.2 medbenchthink: 400/500, 400 success
+  glm-5.2 medbenchthink: 500/500, 500 success
+glm-5.2 medbenchthink: DONE -> 500 rows, 0 nulls
+minimax-m2.5 icdbench: starting 3675 questions
+  minimax-m2.5 icdbench: 100/3675, 99 success
+  minimax-m2.5 icdbench: 200/3675, 197 success
+  minimax-m2.5 icdbench: 300/3675, 296 success
+  minimax-m2.5 icdbench: 400/3675, 395 success
+  minimax-m2.5 icdbench: 500/3675, 494 success
+  minimax-m2.5 icdbench: 600/3675, 593 success
+  minimax-m2.5 icdbench: 700/3675, 691 success
+  minimax-m2.5 icdbench: 800/3675, 791 success
+  minimax-m2.5 icdbench: 900/3675, 891 success
+  minimax-m2.5 icdbench: 1000/3675, 991 success
+  minimax-m2.5 icdbench: 1100/3675, 1089 success
+  minimax-m2.5 icdbench: 1200/3675, 1189 success
+  minimax-m2.5 icdbench: 1300/3675, 1288 success
+  minimax-m2.5 icdbench: 1400/3675, 1386 success
+  minimax-m2.5 icdbench: 1500/3675, 1483 success
+  minimax-m2.5 icdbench: 1600/3675, 1583 success
+  minimax-m2.5 icdbench: 1700/3675, 1682 success
+  minimax-m2.5 icdbench: 1800/3675, 1782 success
+  minimax-m2.5 icdbench: 1900/3675, 1881 success
+  minimax-m2.5 icdbench: 2000/3675, 1981 success
+  minimax-m2.5 icdbench: 2100/3675, 2080 success
+  minimax-m2.5 icdbench: 2200/3675, 2180 success
+  minimax-m2.5 icdbench: 2300/3675, 2280 success
+  minimax-m2.5 icdbench: 2400/3675, 2379 success
+  minimax-m2.5 icdbench: 2500/3675, 2479 success
+  minimax-m2.5 icdbench: 2600/3675, 2579 success
+  minimax-m2.5 icdbench: 2700/3675, 2679 success
+  minimax-m2.5 icdbench: 2800/3675, 2779 success
+  minimax-m2.5 icdbench: 2900/3675, 2878 success
+  minimax-m2.5 icdbench: 3000/3675, 2977 success
+  minimax-m2.5 icdbench: 3100/3675, 3076 success
+  minimax-m2.5 icdbench: 3200/3675, 3175 success
+  minimax-m2.5 icdbench: 3300/3675, 3275 success
+  minimax-m2.5 icdbench: 3400/3675, 3375 success
+  minimax-m2.5 icdbench: 3500/3675, 3474 success
+  minimax-m2.5 icdbench: 3600/3675, 3573 success
+  minimax-m2.5 icdbench: 3675/3675, 3648 success
+minimax-m2.5 icdbench: DONE -> 3675 rows, 27 nulls
+minimax-m2.5 medbenchthink: starting 500 questions
+  minimax-m2.5 medbenchthink: 100/500, 100 success
+  minimax-m2.5 medbenchthink: 200/500, 199 success
+  minimax-m2.5 medbenchthink: 300/500, 298 success
+  minimax-m2.5 medbenchthink: 400/500, 398 success
+  minimax-m2.5 medbenchthink: 500/500, 495 success
+minimax-m2.5 medbenchthink: DONE -> 500 rows, 5 nulls
+All DashScope complete!

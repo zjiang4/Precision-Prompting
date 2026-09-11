@@ -1,0 +1,14 @@
+Historical-name mapping for this audit package
+================================================
+
+The raw sources and logs in this package were produced in June-July 2026 and
+use the internal identifiers of that period. The mapping to the model names
+used in the manuscript and in results/*.csv (as of 2026-09-11) is:
+
+  V3                        -> MedSeek
+  V25                       -> hulu-med flash 27b
+  reasoning-medical0.1-27b  -> evaluated during development; NOT among the 14
+                              models reported in the manuscript
+
+All statistics in README.md of this package refer to the same underlying runs
+as the published result files; only the identifiers differ.
