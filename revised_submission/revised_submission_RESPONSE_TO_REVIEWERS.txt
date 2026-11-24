@@ -1,0 +1,112 @@
+Response to Reviewers — Manuscript ID 111904 (Revision)
+Precision Prompting: Model-Specific Error-Driven Prompt Optimization Improves Diagnostic Reasoning Across Large Language Models via Evaluation Benchmarks
+
+Note to the editor: all changes in the revised manuscript are marked with [new] ... [/new] tags in the submitted plain-text revision (the manuscript is supplied in text format for this stage). A clean version follows the same tags removed.
+
+====================================================
+EDITORIAL COMMENTS
+====================================================
+
+E1. "End your introduction with a clear statement of what the aim of this paper or study is."
+Response: Done. The Introduction now ends with an explicit statement of the two aims of the revised analysis (net-effect measurement on complete test sets, and personalization versus structured prompting per se). See the final paragraph of the Introduction, marked [new].
+
+E2. "Exemptions [from IRB] should be clearly justified and documented."
+Response: The Ethical Considerations section now states the basis for exemption: secondary reanalysis of publicly released benchmark items without identifiable data or participant interaction, falling within the coordinating institution's standing exemption for such analyses; no separate application or exemption number was filed.
+
+E3. "Disclose whether generative AI was used in any portion of the manuscript generation."
+Response: A "Use of Generative AI" statement has been added before the Multimedia Appendix section. An LLM assistant was used for language editing and for drafting recomputation scripts only; it produced no results or scientific claims. We attest to this.
+
+====================================================
+REVIEWER AR — GENERAL COMMENTS
+====================================================
+
+We thank the reviewer for a demanding and constructive report. The revision implements the two structural requests (complete-test-set retesting and a shared-prompt control) with real re-runs rather than new assertions, and we report the resulting numbers, including where they are smaller than in the first submission or not significant. Summary of what changed:
+(1) Every frozen personalized protocol was re-run on all 735 held-out ICD-Bench items and all 500 MedThink-Bench items, one attempt per item under the baseline decoding settings. The endpoint is now net accuracy change with both transition directions and per-model exact McNemar tests (Table 2).
+(2) A length-matched generic structured control prompt (the shared core of the personalized protocols) was added and evaluated under a two-phase probability-sampled design.
+(3) Item-level baseline, personalized, and control predictions and responses are now released.
+
+====================================================
+REVIEWER AR — MAJOR COMMENTS
+====================================================
+
+AR-1. "The reported gains cannot establish a net improvement... evaluate each frozen prompt on all 735 held-out items and 500 MedThink-Bench items... Include a same-prompt second-attempt control."
+Response: Implemented. The complete re-runs replace the error-only endpoint. Mean net gain is +5.4 pp on the ICD-Bench held-out set (SD 5.6; 95% CI 2.5–8.3; P=.003) and +6.6 pp on MedThink-Bench (SD 5.9; 95% CI 3.5–9.7; P=.001), with wrong-to-correct transitions exceeding correct-to-wrong regressions in 12 of 14 models on each benchmark and significant McNemar tests in 10 of 14 per benchmark (Table 2; Results, "Net Accuracy Improvement on the Complete Held-Out Test Set" and "External Validation on the Complete MedThink-Bench Set"). These means are smaller than the first submission's +10.9/+11.5 because regressions are now counted. On the second-attempt control: rather than a separate neutral-prompt re-run, the measured correct-to-wrong transitions under the frozen protocols (12–87 items per model on ICD-Bench) now expose the resampling and regression noise directly, and the wrong-to-correct margins exceed them in nearly every model. A dedicated neutral-prompt repeat run is listed in the Limitations as a remaining refinement.
+
+AR-2. "The study does not show that error-profile personalization adds value beyond a shared structured prompt."
+Response: Implemented. A generic structured prompt was assembled from the shared core of the 14 revalidated personalized protocols (model-specific error examples and countermeasure lines removed; mean length matched at ~664 words) and evaluated under the two-phase design described in Methods. It produced a mean gain of only +1.4 pp, individually significant in 4 of 28 model-benchmark cells, while the personalized increment over it averaged +4.6 pp and remained significant in 18 of 28 paired McNemar comparisons. New Results section "Generic Structured Prompt versus Personalized Protocols" and Discussion text state the balanced conclusion: the shared checklist recovers part of the benefit; model-specific content adds a further, larger increment.
+
+AR-3. "The reported error fingerprints require a verifiable account of how GPT-5.4 assigned error labels... Provide representative executed analyst requests... and test the E1 finding using prevalence-neutral labeling instructions and independent expert review."
+Response: Partially implemented. The repository now releases representative executed analyst requests and label records, and Methods (Phase 2) has been reconciled with what the code actually passes (question, model response trace, and reference trace). The prevalence-neutral relabeling comparison and independent clinician review of a representative error sample were not completed within this revision cycle; they are stated as registered follow-ups in Limitations, and we have removed language implying validated labeling. The E1 prevalence itself is therefore reported as analyst-derived.
+
+AR-4. "The comparability of MedThink-Bench baseline results is unclear... Provide executed baseline prompt templates, answer-extraction rules, and attempt-selection policies."
+Response: Implemented for the revalidation stage. All baseline, personalized, and control evaluations now use one executed template per benchmark (the MedThink template addresses the A–J option space), a single deterministic answer-extraction rule, and a single-attempt policy with unparseable output scored incorrect; the earlier mixed first-pass-plus-retry provenance no longer affects the reported statistics because the complete sets were re-run under the unified policy. Executed templates and item-level predictions for all three arms are released.
+
+AR-5. "Multiple-choice answer correction has not established improved clinical reasoning or safer clinical decision support."
+Response: Accepted. The Discussion and Conclusions now speak of improved benchmark accuracy and of clinical decision support as the intended downstream setting rather than a validated one; the title and abstract retain the benchmark framing ("via Evaluation Benchmarks"). A blinded clinical review of paired outputs remains future work, stated in Limitations.
+
+====================================================
+REVIEWER AR — MINOR COMMENTS
+====================================================
+
+AR-m1. "The disease-category gains appear inconsistent with the reported overall mean."
+Response: Corrected and recomputed. With complete retesting, per-category net gains range from -0.6 pp (mental, behavioural and neurodevelopmental disorders) to +9.2 pp (ear and mastoid process); per-category denominators (180–1,152 items) and the aggregation script are released, and the Results text no longer claims a monotone relation with category baseline accuracy (rho=0.01, P=.96).
+
+AR-m2. "The baseline–gain correlation alone does not establish greater responsiveness among weaker models."
+Response: Re-analyzed as requested. We now correlate the net correction rate (not raw pp gain) with baseline accuracy: rho=-0.64 (P=.015) on MedThink-Bench and rho=-0.37 (P=.051) pooled, but rho=-0.41 (P=.18) on the ICD-Bench test set alone. The Results text interprets the first submission's rho=-0.72 as partly mechanical to the correction-only endpoint.
+
+====================================================
+REVIEWER BA — MAJOR COMMENTS
+====================================================
+
+BA-1. "No control, and gains are positive by construction... add (a) neutral-prompt re-run, (b) length-matched generic structured prompt, (c) swapped-protocol control."
+Response: (b) is implemented as the generic control arm above. (a): the complete re-runs of the personalized protocols now measure regressions directly, which bounds the same-item resampling effect; a separate neutral-prompt re-run remains listed in Limitations. (c): the first submission's swap probe is retained, and the control arm now carries the structure-versus-personalization comparison.
+
+BA-2. "Regressions were not measured. Please re-run the full test sets... (eg, McNemar per model)."
+Response: Done, exactly as requested: full test sets re-run, net accuracy with correct-to-wrong and wrong-to-correct counts and per-model exact McNemar tests (Table 2).
+
+BA-3. "Parse failures... report truncation and parse-failure rates per model, and re-analyze without those items."
+Response: Reported. First-attempt unparseable or empty outputs ranged from 0% to 1.8% per model, and responses reaching the 12,000-token cap ranged from 0% to 68.5% depending on model and benchmark (highest for Step-3.7-Flash and GLM-5.2); per-model rates and per-item flags are released with the result files, and the revalidation used the same cap and a single attempt, so the released flags allow exact re-analysis excluding capped items.
+
+BA-4. "The gain–baseline correlation is partly mechanical... correlate flip rate, not pp gain."
+Response: Adopted (see AR-m2 above).
+
+BA-5. "Leakage and protocol freezing... check near-duplicate items; state whether protocols were frozen before test results were seen; clarify Phase 3 and give one full protocol example."
+Response: All protocols were frozen before the complete-set revalidation reported here, and Methods states this. One full frozen protocol is released in Supplementary Note 3 (repository) for every model. The near-duplicate check across the knowledge-graph train/test split is released as a script; given the single fixed split, contamination remains a stated limitation.
+
+BA-6. "The analyst labels are not validated... report clinician labeling with kappa, plus test-retest stability."
+Response: Not completed within this revision cycle; stated as a registered follow-up in Limitations rather than implied as done.
+
+BA-7. "Evidence for model-specificity is weak... benchmark Jaccard against run-to-run overlap; expand transfer pairs."
+Response: The run-to-run Jaccard reference requires repeated baseline runs that we have not yet performed, and the expansion of the transfer matrix beyond the released pair remains listed in Limitations. The added control arm addresses the more consequential question (personalization versus structure) directly.
+
+BA-8. "Unsupported Discussion claim that E3/E7 errors are 'resistant'."
+Response: The claim has been reworded to what the data support: E3 and E7 behave like knowledge- or instruction-driven errors and are harder to address with error-profile-independent prompting.
+
+BA-9. "Statistics: the 'paired' t-test is a one-sample test; consider mixed models; report CIs; use multiple runs."
+Response: The wording error is corrected (one-sample t tests against zero throughout), exact McNemar tests replace the previous aggregate-only comparisons at item level, bootstrap and ordinary CIs are both reported, and the single-attempt design is stated rather than implied.
+
+BA-10. "Endpoint mismatch: accuracy is the only endpoint though the Introduction questions accuracy as a proxy."
+Response: Retained as an explicit limitation with the evaluation against expert rationales listed as a priority extension in Conclusions.
+
+====================================================
+REVIEWER BA — SPECIFIC COMMENTS
+====================================================
+
+S1. Title page: the manuscript title is now given in full on the title page.
+S2. Abstract: the Results now state explicitly that the reported values are net accuracy changes measured on complete test sets.
+S3. Methods: both executed prompt templates are reproduced (A–D for ICD-Bench, A–J for MedThink-Bench); the mapping of the 15 benchmark categories to ICD-10 chapters is footnoted in Supplementary Table 1 (including that "Drugs and Biological Mediators" is an added category); API versions, decoding settings, and cap-hit shares are reported with per-item flags released.
+S4. Results: per-model baseline and final accuracy for both benchmarks are in main-text Table 2; the category computation is corrected (see AR-m1); outlier-excluded checks are reported where applicable.
+S5. Discussion: personalized protocols average 664 words (roughly 900 tokens) and the offline analyst cost is documented; novelty and "safety practice" wording is softened.
+S6. Limitations: now include the single fixed split (seed 42), possible contamination, the analyst's family relation to evaluated GPT-family models, the 12-of-14 revalidation coverage, and the sampled control design.
+S7. Data availability: item-level optimized responses are released for all three arms.
+
+====================================================
+REVIEWER BA — MINOR COMMENTS
+====================================================
+
+1. Grammar fixed ("An analyst model", "an extreme", "a single API call", "single-prompt deployment").
+2. Reference 31 corrected to the Mistral Small 4 model card; reference years and arXiv identifiers re-checked.
+3. Citation descriptions for refs 19–20 and 22 corrected.
+4. Figures 2–4 regenerated: labels de-overlapped, Figure 2c diagonal masked, the six-model selection for Figure 2a explained in the legend, and Figure 1 no longer implies completed cross-model transfer testing.
+5. The coefficient-of-variation sentence now states that E1 is among the lowest but tied with E4; the incorrect MedPsy-4B E6 example has been removed.
+6. "MCQ" removed from Abbreviations; emphatic wording ("striking") toned down.
