@@ -1,0 +1,97 @@
+bench,model,qid,arm,consistent,natural,grounded,issues
+MBT,Qwen3.6-Flash,328,A_real,True,True,True,[]
+ICD,gpt-oss-120b,595,A_real,True,True,True,[]
+ICD,GLM-5.2,2911,A_real,True,True,True,[]
+ICD,Baichuan-M3,851,A_real,True,True,True,[]
+ICD,Baichuan-M3,3067,A_real,True,True,True,[]
+MBT,diffusiongemma-26b,12,A_real,True,True,True,[]
+ICD,Baichuan-M3,1636,A_real,True,True,True,[]
+ICD,Qwen3.6-Flash,95,A_real,True,True,True,[]
+MBT,MedSeek-V3,137,A_real,False,True,False,"['Reasoning concludes option C, but the correct option is D; reasoning is inconsistent with the provided correct option.']"
+MBT,GPT-5,183,A_real,True,True,True,[]
+ICD,hulu-med-flash-27b,659,A_real,True,True,True,[]
+MBT,GPT-5,61,A_real,True,True,True,[]
+ICD,gpt-oss-120b,2572,A_real,True,True,True,[]
+ICD,GPT-5,1781,A_real,True,True,True,[]
+ICD,GLM-5.2,779,A_real,True,True,True,[]
+ICD,MedSeek-V3,1119,A_real,,,,
+MBT,Mistral-Small-4-119B,255,A_real,False,True,True,['Final answer D conflicts with stated correct option B; reasoning concludes D while item header says correct option B.']
+ICD,GLM-5.2,2734,A_real,True,True,True,[]
+MBT,gpt-oss-120b,469,A_real,False,True,True,['Final answer C conflicts with stated correct option B; reasoning concludes C while item header says correct option B.']
+ICD,Baichuan-M3,1520,A_real,True,True,True,[]
+MBT,DeepSeek-V4-Flash,88,A_real,True,True,True,[]
+ICD,DeepSeek-V4-Flash,2146,A_real,True,True,True,[]
+MBT,MedSeek-V3,62,A_real,True,True,True,[]
+ICD,Qwen3.5-122B-A10B,190,A_real,True,True,True,[]
+ICD,MiniMax-M2.5,3157,A_real,True,True,True,[]
+MBT,MedSeek-V3,270,A_real,False,True,True,"['Final answer is (C), but the correct option is J; the reasoning does not justify option J.']"
+ICD,MedSeek-V3,2652,A_real,True,True,True,[]
+ICD,gpt-oss-120b,1638,A_real,True,True,True,[]
+MBT,Baichuan-M3,158,A_real,False,True,True,"['The reasoning concludes option I (acute renal failure), but the item states correct option J (acute tubular necrosis); there is a contradiction.']"
+MBT,MedSeek-V3,465,A_real,False,True,True,"['The reasoning concludes option (G) Calcium, but the item states correct option A; there is a mismatch.']"
+ICD,Baichuan-M3,1931,A_real,True,True,True,[]
+ICD,hulu-med-flash-27b,2744,A_real,,,,
+MBT,Qwen3.6-Flash,205,A_real,False,True,False,Concludes option C despite correct option A; states 'give the letter only' but includes explanation; lacks supporting evidence for guideline recommendation.
+ICD,GLM-5.2,2433,A_real,True,True,True,None; reasoning correctly identifies hereditary angioedema and low C4 as most consistent and guiding.
+MBT,Baichuan-M3,150,A_real,False,True,False,"Internal inconsistency: earlier says TCAs have moderate-quality evidence, later says strong evidence; overstates evidence strength."
+ICD,GPT-5,1166,A_real,True,True,True,"None; reasoning correctly identifies POHS based on peripheral punched-out scars, macular CNV, and absence of vitritis."
+ICD,diffusiongemma-26b,2237,A_real,True,True,True,[]
+ICD,Mistral-Small-4-119B,1781,A_real,True,True,True,[]
+MBT,MedSeek-V3,403,A_real,True,True,True,[]
+MBT,diffusiongemma-26b,302,A_real,True,True,True,[]
+ICD,DeepSeek-V4-Flash,202,A_real,False,True,False,"['Reasoning concludes option B, but item states correct option D; inconsistency with stated correct option.']"
+ICD,MedSeek-V3,633,A_real,True,True,True,[]
+ICD,Mistral-Small-4-119B,1390,A_real,True,True,True,[]
+ICD,GPT-5,2352,A_real,True,True,False,['Reasoning concludes HD-phenocopy but does not provide evidence for JPH3 expansion or specific HD-phenocopy; relies on negative HD and phenotype only.']
+ICD,gpt-oss-120b,2695,A_real,True,True,True,[]
+ICD,DeepSeek-V4-Flash,317,A_real,True,True,True,[]
+MBT,DeepSeek-V4-Flash,197,A_real,True,True,True,"[""Typo: 'anti-10a' should be 'anti-Xa'.""]"
+ICD,Qwen3.6-Flash,3433,A_real,,,,
+MBT,GLM-5.2,21,A_real,True,True,True,[]
+MBT,diffusiongemma-26b,465,A_real,False,True,True,['Final answer (G) conflicts with stated correct option A; reasoning incorrectly identifies calcium as option G while the correct option is A.']
+ICD,gpt-oss-120b,2961,A_real,True,True,True,[]
+ICD,gpt-oss-120b,3556,A_real,True,True,True,[]
+ICD,Baichuan-M3,1903,A_override,True,True,True,[]
+MBT,Qwen3.6-Flash,366,A_override,True,True,True,[]
+ICD,Baichuan-M3,3112,A_override,True,True,True,[]
+ICD,MiniMax-M2.5,2944,A_override,True,True,True,[]
+ICD,MiniMax-M2.5,3569,A_override,True,True,True,[]
+MBT,Qwen3.6-Flash,222,A_override,True,True,True,[]
+ICD,Baichuan-M3,1819,A_override,True,True,False,"['The reasoning assumes the new medication is carbamazepine, which is not specified in the vignette.']"
+ICD,hulu-med-flash-27b,1059,A_override,True,True,False,"['The reasoning assumes Cockayne syndrome based on a progeroid presentation and a DNA repair mutation, but the clinical features are not typical of Cockayne syndrome; the reasoning is not fully grounded.']"
+ICD,Baichuan-M3,2523,A_override,True,True,True,[]
+MBT,MedSeek-V3,20,A_override,True,True,True,[]
+ICD,MedSeek-V3,403,A_override,True,True,True,[]
+ICD,Baichuan-M3,2449,A_override,True,True,True,[]
+MBT,Qwen3.6-Flash,400,A_override,True,True,True,[]
+ICD,gpt-oss-120b,469,A_override,True,True,True,[]
+MBT,gpt-oss-120b,346,A_override,True,True,True,[]
+ICD,Baichuan-M3,1016,A_override,True,True,True,[]
+ICD,Baichuan-M3,1092,A_override,True,True,True,[]
+ICD,MiniMax-M2.5,1704,A_override,True,True,True,[]
+ICD,Baichuan-M3,3483,A_override,True,True,True,[]
+ICD,Baichuan-M3,515,A_override,,,,
+MBT,MedSeek-V3,25,A_override,True,True,True,[]
+ICD,MedSeek-V3,190,A_override,True,True,False,"['The reasoning incorrectly associates SLC38A8 mutations with hypochondroplasia; SLC38A8 mutations are associated with spondyloepiphyseal dysplasia and other skeletal dysplasias, not hypochondroplasia.']"
+ICD,Baichuan-M3,1028,A_override,True,True,True,[]
+MBT,MedSeek-V3,283,A_override,,,,
+MBT,gpt-oss-120b,491,A_override,True,True,True,[]
+ICD,MiniMax-M2.5,3110,A_override,True,True,True,[]
+ICD,Baichuan-M3,2995,A_override,True,True,True,[]
+MBT,Qwen3.6-Flash,445,A_override,True,True,True,[]
+ICD,Baichuan-M3,546,G_override,True,True,True,[]
+ICD,DeepSeek-V4-Flash,2393,G_override,False,True,False,"['Reasoning concludes option B, but the correct option is D; the reasoning incorrectly dismisses propranolol as unlikely because it was stopped two weeks ago, while the correct mechanism is propranolol-induced vasospasm.']"
+ICD,DeepSeek-V4-Flash,3590,G_override,True,True,True,[]
+ICD,MiniMax-M2.5,825,G_override,True,True,True,[]
+ICD,diffusiongemma-26b,1184,G_override,False,True,True,"['Analysis concludes B, but the provided correct option is C; conclusion does not match the stated correct option.']"
+MBT,diffusiongemma-26b,90,G_override,False,True,True,"['Analysis concludes B, but the provided correct option is A; conclusion does not match the stated correct option.']"
+MBT,Baichuan-M3,434,G_override,True,True,True,[]
+ICD,DeepSeek-V4-Flash,1787,G_override,,,,
+MBT,GPT-5,337,G_override,True,True,True,[]
+MBT,Baichuan-M3,395,G_override,True,True,True,[]
+ICD,diffusiongemma-26b,1238,G_override,False,True,True,"['Stated correct option C conflicts with final answer D; conclusion recommends amphetamine salts for both narcolepsy and ADHD, which is plausible but contradicts the declared correct option.']"
+MBT,DeepSeek-V4-Flash,422,G_override,True,True,True,[]
+MBT,GPT-5,218,G_override,True,True,True,[]
+ICD,Mistral-Small-4-119B,50,G_override,True,True,True,[]
+ICD,diffusiongemma-26b,400,G_override,False,True,True,"['The reasoning concludes option C, but the correct option is B; final answer does not match the provided correct option.']"
+MBT,diffusiongemma-26b,129,G_override,,,,

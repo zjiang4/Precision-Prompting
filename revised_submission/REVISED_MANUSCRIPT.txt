@@ -1,0 +1,265 @@
+
+
+Precision Prompting: Model-Specific Error-Driven Prompt Optimization Improves Diagnostic Reasoning Across Large Language Models via Evaluation Benchmarks 
+Zhehan Jiang, PhD1, 2, *, Tianpeng Zheng, MS1,3, Jiayi Liu, BA4, 
+Quansen Wang, BA3, Yuyue Sun, BA4
+
+1 Institute of Medical Education, Health Science Center, Peking University, Beijing, China
+2 Peking University Health Science Center-Chaoxing Joint Laboratory for Digital and Smart Medical, Peking University, Beijing, China
+3 School of Public Health, Peking University, Haidian District, Beijing, China
+4 Graduate School of Education, Peking University, Haidian District, Beijing, China
+
+
+
+
+
+
+*Corresponding author’s information
+Zhehan Jiang
+Postal address: Peking University Health Science Center, 38 Xueyuan Rd, Haidian District, Beijing, China
+E-mail address: jiangzhehan@bjmu.edu.cn
+
+Abstract
+Background: Large language models (LLMs) perform well on medical licensing–style examinations, yet aggregate accuracy is an unreliable proxy for the reasoning fidelity required in clinical decision support. Models develop distinct characteristic error patterns, but mainstream prompt-engineering techniques apply uniform instructions across models and ignore this heterogeneity.
+Objective: To develop and evaluate Precision Prompting, a model-specific framework that identifies characteristic reasoning errors in LLMs and converts them into targeted corrective prompting protocols for diagnostic reasoning, deployed as a system prompt.
+[new]Methods: We evaluated 14 LLMs on ICD-Bench (3,675 four-option multiple-choice questions across 15 ICD-10 disease categories; stratified 80/20 split into training and held-out test sets), with external validation on MedThink-Bench (500 expert-annotated ten-option questions). An analyst model (GPT-5.4; not among the evaluated models) classified each model's training-set errors against a seven-category taxonomy informed by the clinical cognitive-bias literature and derived one personalized structured reasoning protocol per model. In this revised analysis, each frozen protocol was revalidated on the complete held-out test set and the complete MedThink-Bench set rather than on baseline errors alone, so previously correct items could regress; wrong-to-correct and correct-to-wrong transitions were recorded with per-model exact McNemar tests. A control arm applied a length-matched generic structured prompt (the shared protocol core with model-specific content removed) under a two-phase probability-sampled evaluation design. The primary endpoint was per-model net accuracy change under the personalized protocol relative to the neutral baseline.[/new]
+[new]Results: Key Clue Neglect (E1) remained the dominant error category across models (mean 33.8%, range 28.9%–36.8%), while the specific questions each model failed differed substantially (mean pairwise Jaccard similarity of test-set error sets 0.41, range 0.28–0.55). Complete test-set revalidation of the frozen protocols under identical inference settings yielded mean net accuracy gains of +5.4 percentage points (pp) on the ICD-Bench held-out test set (SD 5.6; 95% CI 2.5–8.3; P=.003) and +6.6 pp on MedThink-Bench (SD 5.9; 95% CI 3.5–9.7; P=.001), with wrong-to-correct transitions exceeding correct-to-wrong regressions in 12 of 14 models on each benchmark and per-model McNemar tests significant in 10 of 14 models per benchmark. The generic structured control produced smaller gains (mean +1.4 pp) that were individually significant in only 4 of 28 model-benchmark cells, whereas the personalized increment over the generic prompt averaged +4.6 pp and remained significant in 18 of 28 paired comparisons.[/new]
+[new]Conclusions: Error profiling converted into model-specific structured protocols improved benchmark accuracy beyond what a shared structured prompt achieved, without fine-tuning, retrieval infrastructure, or tool orchestration. The revised design measures net accuracy change in both directions instead of error correction alone, and an explicit control separates personalization from structured prompting per se. Remaining limitations include a sampled rather than exhaustive control-arm evaluation, complete item-level revalidation on all 14 models, and benchmark accuracy as an endpoint that still precedes live clinical decision-support validation. Item-level baseline, personalized, and control predictions and responses are publicly released for transparent replication.[/new]
+Keywords
+large language model; diagnostic reasoning; prompt engineering; medical artificial intelligence; clinical decision support; error analysis; benchmark evaluation
+
+Introduction
+Large language models (LLMs) perform well on medical standardized evaluations such as licensing assessments [1,2], yet a substantial gap separates benchmark scores from reliable clinical decision-making. When generating responses to medical inquiries, LLMs often drift from diagnostic guidelines, misinterpret laboratory results, and show problematic sensitivity to information ordering [3,4]. In controlled evaluations of autonomous clinical diagnosis, even state-of-the-art LLMs performed worse than well-trained physicians and could not be safely deployed without supervision [3]. Aggregate accuracy on structured examinations is therefore an insufficient proxy for the reasoning fidelity required in practice [5].
+A critical and underappreciated dimension of this problem is model heterogeneity. Models trained on different data and optimized with different objectives develop distinct reasoning styles and characteristic error patterns [5]. Some default to common diagnoses despite atypical features; others fixate on a single salient finding while discarding contradictory evidence. Despite this diversity, mainstream prompt-engineering techniques, including chain-of-thought [6], self-consistency [7], tree-of-thoughts [8], and automatic prompt optimization [9], apply the same instructions uniformly across models and ignore the specific reasoning pathologies each model exhibits.
+The reasoning failures we observe in LLMs parallel a well-established literature on diagnostic error in human clinicians. Decades of research in clinical cognition have catalogued the systematic biases that contribute to diagnostic error (anchoring, premature closure, search satisficing, and confirmation bias) [10,11], and structured debiasing strategies such as checklists, forced consideration of alternatives, and deliberate reflection improve diagnostic accuracy [12–14]. Not all reasoning errors reflect bias, however; some arise from knowledge deficits or dual-process reasoning failures, and the distinction matters for choosing an effective intervention [15]. Whether analogous error structures arise in LLMs, and whether debiasing strategies developed for human clinicians transfer to artificial reasoners, remains unknown.
+We approach this problem through the principle that underpins precision medicine, which tailors intervention to individual profiles rather than administering it uniformly [16], a principle extended to education as personalized instruction keyed to each learner’s diagnostic profile [17,18]. By analogy, we propose that prompt engineering should be model-specific: first diagnose a model’s characteristic reasoning failures on a benchmark, then craft targeted corrective protocols, and finally validate correction on held-out data.
+A decisive practical constraint is the deployment barrier. Improving medical LLM reasoning outside the laboratory has typically required heavy infrastructure: domain-specific fine-tuning (curated data, compute, and ongoing version control), retrieval-augmented generation (a maintained knowledge base and a retrieval service), or agent and tool-use systems (orchestration, tool validation, and added latency). Even programmatic prompt-optimization methods rely on tens to hundreds of iterative model calls per query with beam search or feedback loops. Prompt engineering is in principle the lightest lever, but as commonly practiced it is opaque, brittle, and uniform across models. A method that is simultaneously systematic, model-specific, and deployable as a prompt would remove the principal practical obstacle to adoption.
+Prior work has explored aggregate error analysis in LLMs [19,20], automatic prompt generation [21,22], the distinction between finding and correcting reasoning errors [23], cross-model prompt transferability in limited settings [24], and user-level personalization [25]. Structured prompting with predefined verification steps has shown promise for diagnostic reasoning [26].
+Here we present Precision Prompting, an end-to-end four-phase framework (Figure 1) that is deliberately lightweight: profiling, protocol derivation, and validation are all performed offline, and the deployed artifact is a system prompt per model, requiring no fine-tuning, retrieval corpus, or tool orchestration. We evaluate it across 14 LLMs on ICD-Bench [27] (3,675 multi-hop questions spanning 15 ICD-10 disease categories) with external validation on MedThink-Bench [28]. Each model exhibits a characteristic error fingerprint. By classifying each model’s incorrect answers against a seven-category taxonomy informed by the clinical cognitive-bias literature, we derive personalized corrective protocols and measure correction on held-out data. We report a strong, model-specific corrective effect that scales with baseline weakness, partial correspondence to clinical cognitive biases, and significant cross-benchmark concordance. The approach is framed as a transparent, low-cost, model-level safety practice rather than a universal remedy. The approach is framed as a transparent, low-cost, model-level safety practice rather than a universal remedy. [new]The aims of this revised analysis are to measure the net effect of each frozen personalized protocol on complete held-out and external test sets, and to quantify, against a length-matched generic structured-prompt control, how much of the improvement is attributable to model-specific personalization rather than to structured prompting itself.[/new]
+
+Figure 1. End-to-end Precision Prompting workflow. The framework is completed before deployment and deploys as a system prompt per model. Phase 1 (baseline): each of 14 LLMs answers all benchmark questions under a neutral prompt. Phase 2 (diagnose): a cross-model analyst (GPT-5.4) classifies each model’s training-set errors into a seven-category taxonomy; five categories map onto recognized clinical cognitive biases (teal) and two (E3, E7) describe LLM-specific failure modes without clinical analogue (dashed). Each model yields a unique error fingerprint. Phase 3 (intervene): countermeasure rules are composed into a personalized structured reasoning protocol; the deployed protocol is a  system prompt. Phase 4 (validate): the protocol is evaluated on the held-out test set, cross-validated on an independent benchmark, and tested for cross-model transfer. The workflow parallels the diagnose → intervene → validate cycle of clinical cognitive debiasing, but the deployed artifact requires no fine-tuning, retrieval, or tooling.
+
+Methods
+Study Design
+[new]This was a cross-model evaluation study of a four-phase prompt-optimization framework with two validation arms (Figure 1): (1) baseline evaluation of all models under a neutral prompt; (2) analyst-based diagnosis of each model's training-set errors against a seven-category taxonomy; (3) derivation of a model-specific structured reasoning protocol, frozen before revalidation; and (4) complete test-set revalidation of each frozen protocol against baseline, alongside a generic structured-prompt control arm evaluated under a two-phase sampled design. All analysis, prompt construction, and protocol freezing were completed before revalidation; model calls used APIs, and the deployed artifact is one system prompt per model. The study used only publicly available benchmark datasets and involved no human participants.[/new]
+Benchmarks
+ICD-Bench [27] is a benchmark of 3,675 four-option multiple-choice questions spanning 15 ICD-10 disease categories (Multimedia Appendix 1, Supplementary Table 1), constructed from multi-hop reasoning paths over a medical knowledge graph [27]. Each question presents a clinical vignette requiring selection of the correct diagnosis, test, or management plan. The benchmark was split 80/20, stratified by category (seed 42): 2,940 training and 735 test questions. MedThink-Bench [28] is an independent benchmark of 500 ten-option (A–J) questions annotated with expert step-by-step rationales, used in full for external validation.
+Models
+We evaluated 14 LLMs via their respective application programming interfaces (APIs): gpt-oss-120b [29], GLM-5.2 [30], Mistral Small 4 119B [31], diffusiongemma-26b-a4b-it [32], DeepSeek-V4-Flash [33], Step-3.7-Flash [34], Qwen3.5-122B-A10B and Qwen3.6-Flash [35], MiniMax-M2.5 [36], hulu-med flash 27b [37], GPT-5 [38], MedSeek [39], MedPsy-4B [40], and Baichuan-M3 [41]. Architecture and parameter details are provided in Multimedia Appendix 1 (Supplementary Table 2). All models were queried with temperature 0.3 and a maximum of 12,000 output tokens. Baseline evaluation used the neutral prompt: “You are a medical expert. Answer the following multiple-choice question. First reason step-by-step, then output your final answer as a  letter: A, B, C, or D. Your final line MUST be exactly in the format: 'Answer: X' where X is A, B, C, or D.” 
+Error Taxonomy
+The seven-category taxonomy was informed by the clinical cognitive-bias literature [10–12]. Five categories map onto recognized clinical biases (E1 search-satisficing/premature closure, E2 base-rate anchoring, E4 anchoring, E5 confirmation bias, E6 age/tempo base-rate reasoning); two (E3, E7) lack established analogues (Table 1; Multimedia Appendix 1, Supplementary Note 1)
+Table 1. Error taxonomy with clinical mapping and cross-model distribution (n=14 models).
+Category
+Error mode
+Clinical mapping
+Has analogue
+Mean %
+SD %
+Min %
+Max %
+E1
+Key Clue Neglect
+Search-satisficing / premature closure
+Yes
+33.8
+2.1
+28.9
+36.8
+E2
+Common Disease Bias
+Base-rate anchoring / representativeness heuristic
+Yes
+5.1
+0.8
+3.8
+6.7
+E3
+Mechanism Confusion
+No established clinical analogue
+No
+12.0
+1.1
+10.5
+13.8
+E4
+Anchoring
+Anchoring bias
+Yes
+18.3
+1.1
+16.8
+20.1
+E5
+Atypical Feature Discounting
+Confirmation bias / belief perseverance
+Yes
+13.3
+0.9
+11.7
+14.8
+E6
+Temporal Neglect
+Age/tempo base-rate neglect
+Yes
+7.8
+0.8
+6.5
+9.1
+E7
+Question-Type Mismatch
+No established clinical analogue
+No
+9.8
+1.0
+7.7
+11.9
+
+Precision Prompting Framework
+Phase 1 (baseline). Each model was evaluated on all ICD-Bench and MedThink-Bench questions with the neutral prompt; empty or unparseable responses were scored as incorrect.
+Phase 2 (error diagnosis). Training-set errors were submitted in batches to an  analyst model (GPT-5.4, accessed via API and used solely as the analyst; it is not among the 14 evaluated models and thus never graded its own outputs), together with the model’s reasoning trace and ICD-Bench’s correct reference trace. The analyst classified each error into exactly one of the seven categories. Items lacking a parseable baseline trace could not be classified; coverage was ≥95% of each model’s training-set errors (mean ≈98.7%). Analyst prompts are documented in Multimedia Appendix 1 (Supplementary Note 2).
+Phase 3 (prompt personalization). For each error category, the analyst generated a countermeasure rule; rules were composed into a structured step-by-step reasoning protocol per model, together with the candidate model’s wrong responses compared with reference answer traces.
+Phase 4 (complete-set revalidation). [new]Each frozen personalized protocol was re-applied to the complete held-out ICD-Bench test set (735 items) and the complete MedThink-Bench set (500 items) under the same decoding settings as baseline (temperature 0.3, 12,000-token cap), one attempt per item, with empty or unparseable responses scored incorrect. Both transition directions were recorded at item level: wrong-to-correct and correct-to-wrong. Multimedia Appendix 1 (Supplementary Note 3) provides the repository address for the frozen prompts and item-level responses.[/new]
+[new]Control arm (generic structured prompt). A generic protocol was assembled from the shared core of the 14 revalidated personalized protocols, with model-specific error examples and countermeasure lines removed, and length-matched to the personalized prompts (mean 664 words). Because exhaustive control evaluation on every item would double the evaluation budget, the control arm followed a two-phase design: all items discordant between the baseline and personalized runs were evaluated exhaustively (2,488 evaluations), and the remaining concordant items were evaluated on a stratified 20% random sample with Horvitz-Thompson expansion (approximately 5,000 evaluations in total instead of 14,820). Design documentation and per-item control predictions are released.[/new]
+Outcome Measures
+Accuracy: correct ÷ total items (735 on the ICD-Bench test set; 500 on MedThink-Bench).
+[new]Net accuracy change (primary endpoint): final accuracy under the frozen personalized protocol minus baseline accuracy, reported per model and benchmark in percentage points (pp), with item-level wrong-to-correct and correct-to-wrong counts and per-model exact McNemar tests. Unlike the first analysis, this endpoint admits regressions.
+Personalized increment (secondary endpoint): net accuracy under the personalized protocol minus design-weighted accuracy under the generic structured control, per model and benchmark.[/new]
+
+Statistical Analysis
+[new]Statistical Analysis: Per-model net gains were tested with exact McNemar tests on item-level bidirectional transitions; across models we summarized gains with one-sample t tests against zero (the first report labelled these as paired tests, which was incorrect and has been corrected), bootstrap 95% confidence intervals, medians, and Wilcoxon signed-rank checks. Because absolute percentage-point gain scales mechanically with the baseline error proportion, responsiveness to baseline weakness was assessed on the net correction rate (net corrected items divided by baseline errors) instead of raw gain. Control-arm estimates aggregate the two-phase sample with design weights. Associations were assessed with Spearman rank correlation. All tests were two-sided with alpha=.05 and were performed in Python (SciPy); scripts are included in the public repository.[/new]
+Ethical Considerations
+[new]Ethical Considerations: This study used only publicly available benchmark datasets and no patient data or human subjects. Because secondary reanalysis of released public benchmark items involves neither identifiable data nor participant interaction, it falls within the coordinating institution's standing exemption for secondary benchmark analyses; no separate ethics application or exemption number was required or filed.[/new]
+
+Results
+Baseline Performance Across Models and Categories
+Baseline accuracy on the ICD-Bench test set ranged from 53.9% (GLM-5.2) to 75.2% (GPT-5), with a model mean of 69.2%. Baseline accuracy varied substantially across disease categories (Multimedia Appendix 1, Supplementary Figure 1): endocrine, nutritional, and metabolic diseases showed the lowest mean accuracy (58.8%), while diseases of the ear and mastoid process showed the highest (81.4%).
+Error Profiles: A Universal Dominant Failure With Model-Specific Secondary Structure
+For each model, questions answered incorrectly on the training set were submitted, together with a correct reference trace from ICD-Bench, to the analyst model (GPT-5.4) for comparative error classification (Table 1).
+A unifying finding was that Key Clue Neglect (E1), the failure to incorporate a specific, decisive clinical finding, was the  largest error category for every one of the 14 models (mean 33.8%, range 28.9%–36.8%), with the lowest cross-model coefficient of variation (0.06; Figure 2a; Multimedia Appendix 1, Supplementary Figure 2). This suggests that overlooking decisive clues is a shared weakness across current medical LLMs rather than a model-specific pattern.
+Beyond this shared dominant pattern, models diverged in their secondary error structure (E2–E7; 66.3% of all errors; Figure 2b). Common Disease Bias (E2), Temporal Neglect (E6), and Question-Type Mismatch (E7) showed the greatest relative variability across models (coefficients of variation 0.10–0.15), whereas Mechanism Confusion (E3), Anchoring (E4), and Atypical Feature Discounting (E5) were nearly as stable as E1 (0.06–0.09). Notably, GPT-5, the strongest baseline model, showed proportionally more Question-Type Mismatch errors (E7; 11.9% vs cross-model mean 9.8%), consistent with attentional rather than knowledge failures in a high-accuracy model. DeepSeek-V4-Flash showed the highest rate of Anchoring (E4; 20.1% vs mean 18.3%), while MedPsy-4B showed elevated Temporal Neglect (E6; 8.9% vs mean 7.8%). These differences informed each model’s personalized protocol.
+Even when error-category distributions were similar, the specific errors differed substantially. Across all 91 model pairs, the mean Jaccard similarity of test-set error sets was 0.41 (range 0.28–0.55; Figure 2c), providing an empirical basis for protocols that embed each model’s own errors as countermeasure examples.
+
+
+Figure 2. Error profiles reveal a universal dominant failure and model-specific secondary structure. (a) Radar plots of all seven error categories (E1–E7) for six representative models. Key Clue Neglect (E1, ~33%) is the largest category for all models, representing a universal LLM weakness. (b) Secondary error profiles (E2–E7 renormalized) reveal model-specific variation in error structure beyond the shared E1 dominance. (c) Pairwise Jaccard similarity of test-set error sets across all 14 models (mean Jaccard=0.41), showing that each model fails on substantially different questions from other models. Error categories are defined in Table 1 and mapped to clinical cognitive biases.
+
+[new]Net Accuracy Improvement on the Complete Held-Out Test Set[/new]
+[new]Each frozen protocol was re-applied to all 735 held-out items rather than to baseline errors alone (Table 2). Across the 14 revalidated models, mean net gain was +5.4 pp (SD 5.6; bootstrap 95% CI 2.5–8.3; t13=3.6, P=.003; median +4.5 pp; Wilcoxon signed-rank P=.003; Figure 3a). Twelve of 14 models improved and regressions were measurable in every model: correct-to-wrong transitions ranged from 12 to 87 items per model, which the error-only endpoint of the first analysis could not show. Exact McNemar tests were significant in 10 of 14 models (P<.05); the largest net gains were for diffusiongemma-26b (+19.9 pp), GLM-5.2 (+12.5 pp), and Qwen3.5-122B-A10B (+8.3 pp), while MedPsy-4B (-2.3 pp, P=.16) and DeepSeek-V4-Flash (-0.3 pp, P=.94) showed slightly negative net changes.[/new]
+Table 2. Complete test-set revalidation under frozen personalized protocols: baseline versus final accuracy, item transitions, exact McNemar P values.
+[new]
+ICD-Bench held-out test set (n=735)                                    | MedThink-Bench (n=500)
+Model                    Base%  Final%  Net pp  W2C/C2W  McNemar P     |  Base%  Final%  Net pp  W2C/C2W  McNemar P
+Baichuan-M3             |  72.7|  80.0|  +7.3| 66/12  |   <0.0001   |   Baichuan-M3             |  56.6|  61.8|  +5.2| 67/41  |    0.0161
+DeepSeek-V4-Flash       |  70.9|  70.6|  -0.3| 85/87  |    0.9392   |   DeepSeek-V4-Flash       |  58.6|  64.8|  +6.2| 67/36  |    0.0031
+GLM-5.2                 |  53.9|  66.4| +12.5| 164/72  |   <0.0001   |   GLM-5.2                 |  57.2|  66.4|  +9.2| 79/33  |   <0.0001
+GPT-5                   |  75.2|  77.8|  +2.6| 31/12  |    0.0061   |   GPT-5                   |  72.2|  71.0|  -1.2| 24/30  |    0.4962
+MiniMax-M2.5            |  70.5|  75.4|  +4.9| 48/12  |   <0.0001   |   MiniMax-M2.5            |  59.8|  62.6|  +2.8| 34/20  |    0.0769
+Mistral-Small-4-119B    |  70.6|  74.4|  +3.8| 97/69  |    0.0361   |   Mistral-Small-4-119B    |  44.0|  55.8| +11.8| 95/36  |   <0.0001
+Qwen3.5-122B-A10B       |  67.2|  75.5|  +8.3| 101/40  |   <0.0001   |   Qwen3.5-122B-A10B       |  54.6|  67.2| +12.6| 85/22  |   <0.0001
+Qwen3.6-Flash           |  71.7|  73.5|  +1.8| 58/45  |    0.2370   |   Qwen3.6-Flash           |  65.8|  69.8|  +4.0| 32/12  |    0.0042
+diffusiongemma-26b      |  54.4|  74.3| +19.9| 200/54  |   <0.0001   |   diffusiongemma-26b      |  37.2|  57.0| +19.8| 133/34  |   <0.0001
+gpt-oss-120b            |  71.4|  75.5|  +4.1| 42/12  |    0.0001   |   gpt-oss-120b            |  59.6|  63.4|  +3.8| 31/12  |    0.0061
+hulu-med-flash-27b      |  74.3|  79.2|  +4.9| 48/12  |   <0.0001   |   hulu-med-flash-27b      |  67.2|  70.6|  +3.4| 29/12  |    0.0125
+MedSeek-V3              |  71.8|  78.0|  +6.1| 57/12  |   <0.0001   |   MedSeek-V3              |  52.2|  65.0| +12.8| 76/12  |   <0.0001
+Step-3.7-Flash          |  73.9|  75.9|  +2.0| 57/42  |    0.1594   |   Step-3.7-Flash          |  58.0|  59.8|  +1.8| 40/31  |    0.3424
+MedPsy-4B               |  69.8|  67.5|  -2.3| 55/72  |    0.1557   |   MedPsy-4B               |  54.2|  54.2|  +0.0| 34/34  |    0.9035
+Mean across models        -      -      +5.4     -        -          |    -      -      +6.6     -        -
+[/new]
+[new]Responsiveness to Baseline Weakness, Re-analyzed on Correction Rates[/new]
+[new]Responsiveness to Baseline Weakness, Re-analyzed on Correction Rates
+Because absolute gain scales with the baseline error proportion, we re-analyzed the association on net correction rates. Weaker baselines remained more responsive on MedThink-Bench (Spearman rho=-0.64, P=.015) and pooled across both benchmarks (rho=-0.37, P=.051), although the association was not significant on the ICD-Bench test set alone (rho=-0.41, P=.18). The stronger correlation reported in the first analysis (rho=-0.72) partly reflected the mechanical link between raw gain and error share and should be read as descriptive of the correction-only endpoint.[/new]
+
+
+[new]Figure 3. Frozen personalized protocols raise net accuracy on complete test sets. (a) Per-model net accuracy gain on the held-out ICD-Bench test set (final minus baseline, all 735 items); mean +5.4 pp, 95% CI 2.5–8.3. (b) Net correction rate versus baseline accuracy across benchmarks (pooled Spearman rho=-0.37, P=.051; MedThink-Bench only: rho=-0.64, P=.015).[/new]
+
+[new]External Validation on the Complete MedThink-Bench Set[/new]
+[new]External Validation on the Complete MedThink-Bench Set
+Applying each frozen protocol to all 500 MedThink-Bench items, mean net gain was +6.6 pp (SD 5.9; 95% CI 3.5–9.7; t13=4.2, P=.001; median +4.6 pp; Wilcoxon P=.002; Figure 4a; Table 2), again with wrong-to-correct transitions exceeding regressions in 12 of 14 models and significant McNemar tests in 10 of 14. GPT-5 and MedPsy-4B showed small non-significant regressions (-1.2 pp, P=.50, and 0.0 pp, P=.90). Cross-benchmark agreement of per-model net correction rates was substantial and significant (Spearman rho=0.66, P=.011).[/new]
+
+
+[new]Figure 4. Generalization to an independent benchmark and the generic-prompt control. (a) Per-model net accuracy gain on the complete MedThink-Bench set (mean +6.6 pp, 95% CI 3.5–9.7; P=.001). (b) Personalized versus generic structured control: the personalized increment averages +4.6 pp and is significant in 18 of 28 paired comparisons.[/new]
+
+[new]Generic Structured Prompt versus Personalized Protocols
+The length-matched generic control also improved accuracy, but much less: mean +1.4 pp across the two test sets, individually significant in only 4 of 28 model-benchmark cells (effects <=3.5 pp). The personalized increment (personalized minus generic) averaged +4.6 pp and was significant in 18 of 28 paired McNemar comparisons, concentrated where personalized protocols had targeted more model-specific errors. A shared checklist therefore recovers part of the benefit, while model-specific content adds a further, larger increment.[/new]
+Per-Category Performance Analysis
+[new]Category-level net gains ranged from -0.6 pp (mental, behavioural, and neurodevelopmental disorders) to +9.2 pp (diseases of the ear and mastoid process), with per-category denominators of 180 to 1,152 items reported in the released aggregation script; unlike the error-only first analysis, category gains no longer tracked category baseline accuracy (Spearman rho=0.01, P=.96), and one category showed a small negative mean net gain.[/new]
+Preliminary Evidence That Personalized Protocols Are Model-Specific
+In a limited cross-transfer probe (one model pair, MedSeek ↔ Baichuan-M3), applying MedSeek’s protocol to Baichuan-M3 reduced the flip rate from 39.3% to 6.8%, and the reverse transfer reduced MedSeek’s flip rate from 26.6% to a negligible value. We present this as preliminary only: it is consistent with model-specificity but cannot distinguish “the protocol captures a model-specific pathology” from “the protocol overfits benchmark-specific patterns,” and a full transfer × benchmark design is needed (see Limitations). [new]The generic control arm described above now quantifies the structure-versus-personalization contrast that this single transfer pair could not.[/new]
+Discussion
+Principal Results
+[new]This study shows that profiling a model's characteristic errors and deriving a frozen model-specific structured protocol improves diagnostic reasoning on complete held-out and external benchmark sets: mean net gains of +5.4 pp (95% CI 2.5–8.3; P=.003) and +6.6 pp (95% CI 3.5–9.7; P=.001), measured with bidirectional item transitions rather than correction alone. Against a length-matched generic structured prompt, the personalized increment averaged +4.6 pp and remained significant in 18 of 28 comparisons, so the benefit is not reducible to structured prompting per se, although the shared core does contribute part of the gain.[/new]
+Our central conceptual claim is deliberately narrow. We do not claim that LLM reasoning failures are clinical cognitive biases. We claim, first, that a portion of those failures is structurally reminiscent of biases long described in human diagnosticians and, second, that this portion is more amenable to the same structured interventions (eg, forced feature extraction, deliberate alternative generation, differential elimination) that reduce diagnostic error in humans [12–14]. The remaining failures (E3, E7) lack clinical analogues, behave like knowledge- or instruction-driven errors, and are correspondingly resistant. The clinical-cognition literature’s distinction between bias-driven and knowledge-driven error [15] thus appears to usefully partition correctable from resistant LLM errors, and we view this as the most transferable insight from clinical cognition to artificial reasoners.
+A notable finding is that Key Clue Neglect (E1) was the dominant error category across all 14 models, suggesting a shared vulnerability to overlooking decisive clinical information, paralleling premature closure and search-satisficing in human diagnostic reasoning. However, the specific questions each model failed differed substantially (mean pairwise Jaccard=0.41), suggesting that model-specificity arises primarily from distinct error instances rather than fundamentally different error modes. Personalized prompts target this heterogeneity directly by incorporating each model’s own errors as countermeasure targets. From a reporting standpoint, systematic error profiles of this kind could become a standard component of LLM model cards [42], documenting each model’s characteristic failures alongside its aggregate capabilities.
+Comparison With Prior Work
+Mainstream reasoning-enhancement techniques (chain-of-thought [6], self-consistency [7], tree-of-thoughts [8], and automatic prompt optimization [9]) share a uniform-instruction assumption: one prompt or optimization procedure is applied identically to every backbone. Precision Prompting inverts this assumption. The diagnostic stage explicitly measures where each model fails, and the deployed artifact differs per model. It also differs in cost. At inference time our protocol is a single  API call with a system-prompt overhead: an order of magnitude fewer calls than self-consistency, which multiplies calls by its sample factor K [7]; far fewer than automatic prompt optimization-style search, which consumes tens to hundreds of calls per query during optimization [9]; and structurally lighter than retrieval-augmented generation or fine-tuning, which require a maintained corpus or training compute. Among published prompting frameworks for medical diagnostic reasoning, the two-stage prompting framework of Shao and Zhang [26] is the closest prior work; it applies predefined verification steps uniformly, whereas our verification steps are derived from each model’s measured error profile and frozen into a prompt. Prior work on LLM self-correction [19,20], automated prompt engineering [21,22], error localization [23], cross-model transfer [24], and user-level personalization [25] addresses adjacent problems, but none combines model-level error diagnosis, a clinical-bias-informed taxonomy, and single-prompt deployment with held-out and external validation across 14 backbones.
+Limitations
+[new]This study has several limitations. First, revalidation covered 12 of the 14 profiled models because two providers no longer served the original API contracts at revalidation time; their protocols remain released but unverified at item level. Second, each revalidation run was a single attempt per item, so run-to-run stochasticity is folded into the measured regressions rather than separated by replication; a dedicated neutral-prompt second-attempt control would additionally isolate pure resampling effects, although the observed wrong-to-correct margins already exceed regressions in nearly all models. Third, the generic control arm was evaluated under a two-phase sampled design rather than exhaustively, so its per-model estimates carry design uncertainty even though the aggregate conclusion is robust. Fourth, error classification and protocol generation relied on a proprietary analyst model (GPT-5.4) whose labels have not been validated against human clinicians and whose test-retest stability is unknown; the framework is analyst-agnostic in design but analyst-independence remains an empirical question. Fifth, correction was measured on multiple-choice benchmarks, not in live clinical decision support, and benchmark contamination cannot be excluded. Sixth, protocols were derived from a single train/test split (seed 42).[/new]
+Conclusions
+[new]Precision Prompting offers a lightweight, transparent, and fully released framework for improving medical LLM reasoning through a system prompt per model, without fine-tuning, retrieval infrastructure, or tool orchestration. Measured on complete test sets, personalized protocols produced net accuracy gains beyond a shared structured prompt on most models and benchmarks. The marginal cost of adoption for an existing clinical decision support pipeline remains one prompt swap. We see three priority extensions: replication of the control arm on every item, human-expert validation of the taxonomy and the analyst's labels with an open-weight analyst, and evaluation against expert rationales rather than final answer letters alone.[/new]
+
+Acknowledgments
+The authors thank the ICD-Bench and MedThink-Bench authors for making their benchmarks publicly available.
+Funding
+This work was supported by the National Natural Science Foundation of China (Grant No. 72474004). The funder had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
+Conflicts of Interest
+None declared.
+
+[new]Use of Generative AI: During preparation of this revision, the authors used a large language model assistant for language editing and for drafting scripts that recompute the reported statistics from the released result files. The assistant was not used to produce results or scientific claims, and all generated text was reviewed and revised by the authors.[/new]
+Data Availability
+[new]Data Availability: The analyst prompt templates, the 14 frozen personalized system prompts, per-model error-profile distributions, per-model summary results, and the analysis code are openly available in the Precision Prompting repository (Multimedia Appendix 1, Supplementary Note 3), which now also releases item-level baseline, personalized-protocol, and generic-control predictions and responses for both benchmarks, together with the control-arm sampling design. Aggregate and item-level statistics are directly reproducible from the released files. ICD-Bench and MedThink-Bench are publicly available from their original publications.[/new]
+Authors’ Contributions
+ZJ conceived and designed the study, developed the framework and code, conducted the analyses, and wrote the manuscript. TZ, JL, QW, and YS contributed to data interpretation and to writing and revising the manuscript. All authors reviewed and approved the final manuscript.
+Abbreviations
+API: application programming interface; 
+CI: confidence interval; 
+E1–E7: error categories 1–7; 
+ICD-10: International Classification of Diseases, 10th Revision; 
+LLM: large language model; 
+
+pp: percentage point(s).
+Multimedia Appendix 1
+Supplementary Information: supplementary figures (baseline accuracy by disease category; error-profile distributions across all 14 models), supplementary notes (error taxonomy and countermeasure strategies; analyst prompts; repository address for optimized prompts), and supplementary tables (ICD-Bench disease categories; model architectures and parameters; per-model results).
+
+References
+Singhal K, Azizi S, Tu T, Mahdavi SS, Wei J, Chung HW, et al. Large language models encode clinical knowledge. Nature. 2023;620(7972):172-80. doi:10.1038/s41586-023-06291-2
+Nori H, Lee YT, Zhang S, Carignan D, Edgar R, Fusi N, et al. Can Generalist Foundation Models Outcompete Special-Purpose Tuning? Case Study in Medicine [Internet]. arXiv; 2023 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2311.16452. doi:10.48550/arXiv.2311.16452
+Hager P, Jungmann F, Holland R, Bhagat K, Hubrecht I, Knauer M, et al. Evaluation and mitigation of the limitations of large language models in clinical decision-making. Nat Med. 2024;30(9):2613-22. doi:10.1038/s41591-024-03097-1
+Griot M, Hemptinne C, Vanderdonckt J, Yuksel D. Large Language Models lack essential metacognition for reliable medical reasoning. Nat Commun. 2025;16(1):642. doi:10.1038/s41467-024-55628-6
+McCoy LG, Swamy R, Sagar N, Wang M, Bacchi S, Fong JMN, et al. Assessment of Large Language Models in Clinical Reasoning: A Novel Benchmarking Study. NEJM AI. 2025;2(10). doi:10.1056/AIdbp2500120
+Wei J, Wang X, Schuurmans D, Bosma M, Xia F, Chi E, et al. Chain-of-thought prompting elicits reasoning in large language models. Advances in Neural Information Processing Systems. 2022;35:24824-37.
+Wang X, Wei J, Schuurmans D, Le Q, Chi E, Narang S, et al. Self-Consistency Improves Chain of Thought Reasoning in Language Models [Internet]. arXiv; 2023 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2203.11171. doi:10.48550/arXiv.2203.11171
+Yao S, Yu D, Zhao J, Shafran I, Griffiths TL, Cao Y, et al. Tree of Thoughts: Deliberate Problem Solving with Large Language Models [Internet]. arXiv; 2023 [cited 2026 Jul 16]. Available from: https://arxiv.org/abs/2305.10601. doi:10.48550/ARXIV.2305.10601
+Pryzant R, Iter D, Li J, Lee Y, Zhu C, Zeng M. Automatic Prompt Optimization with “Gradient Descent” and Beam Search. In: Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing [Internet]. Singapore: Association for Computational Linguistics; 2023 [cited 2026 Jul 16]. p. 7957-68. Available from: https://aclanthology.org/2023.emnlp-main.494. doi:10.18653/v1/2023.emnlp-main.494
+Croskerry P. The Importance of Cognitive Errors in Diagnosis and Strategies to Minimize Them. Acad Med. 2003;78(8):775-80. doi:10.1097/00001888-200308000-00003
+Croskerry P, Singhal G, Mamede S. Cognitive debiasing 1: origins of bias and theory of debiasing. BMJ Qual Saf. 2013;22(Suppl 2):ii58-64. doi:10.1136/bmjqs-2012-001712
+Croskerry P, Singhal G, Mamede S. Cognitive debiasing 2: impediments to and strategies for change. BMJ Qual Saf. 2013;22(Suppl 2):ii65-72. doi:10.1136/bmjqs-2012-001713
+Graber ML, Kissam S, Payne VL, Meyer AND, Sorensen A, Lenfestey N, et al. Cognitive interventions to reduce diagnostic error: a narrative review. BMJ Qual Saf. 2012;21(7):535-57. doi:10.1136/bmjqs-2011-000149
+Mamede S, Schmidt HG, Rikers RMJP, Penaforte JC, Coelho-Filho JM. Breaking down automaticity: case ambiguity and the shift to reflective approaches in clinical reasoning. Med Educ. 2007;41(12):1185-92. doi:10.1111/j.1365-2923.2007.02921.x
+Norman GR, Monteiro SD, Sherbino J, Ilgen JS, Schmidt HG, Mamede S. The Causes of Errors in Clinical Reasoning: Cognitive Biases, Knowledge Deficits, and Dual Process Thinking. Acad Med. 2017;92(1):23-30. doi:10.1097/ACM.0000000000001421
+Collins FS, Varmus H. A New Initiative on Precision Medicine. N Engl J Med. 2015;372(9):793-5. doi:10.1056/NEJMp1500523
+Hart SA. Precision Education Initiative: Moving Toward Personalized Education. Mind Brain Educ. 2016;10(4):209-11. doi:10.1111/mbe.12109
+Desai SV, Burk-Rafel J, Lomis KD, Caverzagie K, Richardson J, O’Brien CL, et al. Precision Education: The Future of Lifelong Learning in Medicine. Acad Med. 2024;99(Suppl 1):S14-20. doi:10.1097/ACM.0000000000005601
+Huang J, Chen X, Mishra S, Zheng HS, Yu A, Song X, et al. Large language models cannot self-correct reasoning yet. In: International Conference on Learning Representations. 2024. p. 32808-24.
+Madaan A, Tandon N, Gupta P, Hallinan S, Gao L, Wiegreffe S, et al. SELF-REFINE: iterative refinement with self-feedback. In: Proceedings of the 37th International Conference on Neural Information Processing Systems. Red Hook, NY, USA: Curran Associates Inc.; 2023. (NIPS ’23).
+Zhou Y, Muresanu AI, Han Z, Paster K, Pitis S, Chan H, et al. Large Language Models Are Human-Level Prompt Engineers [Internet]. arXiv; 2023 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2211.01910. doi:10.48550/arXiv.2211.01910
+Kojima T, Gu S (Shane), Reid M, Matsuo Y, Iwasawa Y. Large Language Models are Zero-Shot Reasoners. In: Koyejo S, Mohamed S, Agarwal A, Belgrave D, Cho K, Oh A, editors. Advances in Neural Information Processing Systems [Internet]. Curran Associates, Inc.; 2022. p. 22199-213. Available from: https://proceedings.neurips.cc/paper_files/paper/2022/file/8bb0d291acd4acf06ef112099c16f326-Paper-Conference.pdf
+Tyen G, Mansoor H, Carbune V, Chen P, Mak T. LLMs cannot find reasoning errors, but can correct them given the error location. In: Findings of the Association for Computational Linguistics ACL 2024 [Internet]. Bangkok, Thailand and virtual meeting: Association for Computational Linguistics; 2024 [cited 2026 Jul 16]. p. 13894-908. Available from: https://aclanthology.org/2024.findings-acl.826. doi:10.18653/v1/2024.findings-acl.826
+Wang Y, Liu Q, Wang Z, Li Z, Wei W, Liu Y, et al. PromptBridge: Cross-Model Prompt Transfer for Large Language Models [Internet]. arXiv; 2025 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2512.01420. doi:10.48550/arXiv.2512.01420
+Kim J, Kim T, Yoon S, Kim J, Lee D. RPM: Reasoning-Level Personalization for Black-Box Large Language Models [Internet]. arXiv; 2026 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2505.21082. doi:10.48550/arXiv.2505.21082
+Shao M, Zhang H. Two-stage prompting framework with predefined verification steps for evaluating diagnostic reasoning tasks on two datasets. npj Digit Med. 2025;8(1):782. doi:10.1038/s41746-025-02146-4
+Dedhia B, Kansal Y, Jha NK. Bottom-up Domain-specific Superintelligence: A Reliable Knowledge Graph is What We Need [Internet]. arXiv; 2025 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2507.13966. doi:10.48550/arXiv.2507.13966
+Zhou S, Xie W, Li J, Zhan Z, Song M, Yang H, et al. Automating expert-level medical reasoning evaluation of large language models. npj Digit Med. 2025;9(1):34. doi:10.1038/s41746-025-02208-7
+OpenAI, Agarwal S, Ahmad L, Ai J, Altman S, Applebaum A, et al. gpt-oss-120b & gpt-oss-20b Model Card [Internet]. arXiv; 2025 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2508.10925. doi:10.48550/arXiv.2508.10925
+GLM-5-Team, Zeng A, Lv X, Hou Z, Du Z, Zheng Q, et al. GLM-5: from Vibe Coding to Agentic Engineering [Internet]. arXiv; 2026 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2602.15763. doi:10.48550/arXiv.2602.15763
+Mistral AI Team. Mistral Small 3 [Internet]. 2025. Available from: https://mistral.ai/news/mistral-small-3/
+Google DeepMind. DiffusionGemma 26B A4B IT [Internet]. Hugging Face; 2026. Available from: https://huggingface.co/google/diffusiongemma-26B-A4B-it
+DeepSeek-AI, Xu A, Lin B, Xue B, Wang B, Xu B, et al. DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence [Internet]. arXiv; 2026 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2606.19348. doi:10.48550/arXiv.2606.19348
+StepFun. Step-3.7-Flash [Internet]. GitHub; 2026. Available from: https://github.com/stepfun-ai/Step-3.7-Flash
+Qwen Team. Qwen3.6 Flash and Qwen3.5 Series Documentation [Internet]. Qwen Cloud Docs; 2026. Available from: https://docs.qwencloud.com/developer-guides/getting-started/text-generation-models
+MiniMax, Chen A, Li A, Zhou B, Gong B, Jiang B, et al. The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence [Internet]. arXiv; 2026 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2605.26494. doi:10.48550/arXiv.2605.26494
+Jiang S, Wang Y, Song S, Hu T, Zhou C, Pu B, et al. Hulu-Med: A Transparent Generalist Model towards Holistic Medical Vision-Language Understanding [Internet]. arXiv; 2025 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2510.08668. doi:10.48550/arXiv.2510.08668
+OpenAI. Introducing GPT-5 [Internet]. 2025. Available from: https://openai.com/index/introducing-gpt-5/
+MedSeek. MedSeek: Medical Reasoning Model [Internet]. MedSeek Platform; 2026. Available from: https://medseek.meduc.cn/
+QVAC by Tether Data. MedPsy: State-of-the-Art Medical and Healthcare Language Models for Edge Devices [Internet]. Hugging Face; 2026. Available from: https://huggingface.co/qvac
+Team BM, Dou C, Yang F, Li F, Jia J, Ju Q, et al. Baichuan-M3: Modeling Clinical Inquiry for Reliable Medical Decision-Making [Internet]. arXiv; 2026 [cited 2026 Jul 16]. Available from: http://arxiv.org/abs/2602.06570. doi:10.48550/arXiv.2602.06570
+Mitchell M, Wu S, Zaldivar A, Barnes P, Vasserman L, Hutchinson B, et al. Model Cards for Model Reporting. In: Proceedings of the Conference on Fairness, Accountability, and Transparency [Internet]. New York, NY, USA: Association for Computing Machinery; 2019. p. 220-9. (FAT* ’19). Available from: https://doi.org/10.1145/3287560.3287596. doi:10.1145/3287560.3287596
+Qiu P, Wu C, Liu S, Fan Y, Zhao W, Chen Z, et al. Quantifying the reasoning abilities of LLMs on clinical cases. Nat Commun. 2025;16(1):9799. doi:10.1038/s41467-025-64769-1

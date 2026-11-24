@@ -1,0 +1,21 @@
+Cover Letter — Revision of Manuscript 111904
+Dear Editor,
+
+We thank you and both reviewers for the major-revision decision and the highly concrete reports. We submit a revised manuscript that restructures the validation stage rather than rewording it. Below is what changed overall, in the order reviewers will check it.
+
+1. From "correction of baseline errors" to measured net accuracy change. The first submission retested only each model's previously incorrect items, so its gains could not be negative. We have now re-run every frozen personalized protocol on the complete held-out ICD-Bench test set (735 items) and the complete MedThink-Bench set (500 items), one attempt per item under the baseline decoding settings. The revised endpoint is net accuracy change with both transition directions and per-model exact McNemar tests. The honest consequence is that the headline means shrank: +5.4 pp (95% CI 2.5–8.3; P=.003) on the ICD-Bench held-out set and +6.6 pp (95% CI 3.5–9.7; P=.001) on MedThink-Bench, instead of the first submission's +10.9 and +11.5. Twelve of fourteen models improved on each benchmark, regressions appear in every model, and per-model tables with wrong-to-correct and correct-to-wrong counts are now in the main text (Table 2).
+
+2. A real generic-prompt control arm. To separate personalization from structured prompting per se, we built a length-matched generic structured prompt from the shared core of the personalized protocols and evaluated it under a two-phase probability-sampled design (all discordant items exhaustively, concordant items on a stratified 20% sample with Horvitz-Thompson expansion; about 5,000 evaluations instead of 14,820). The generic prompt helps but little (+1.4 pp on average, significant in 4 of 28 cells), while the personalized increment averages +4.6 pp and stays significant in 18 of 28 paired comparisons.
+
+3. Coverage caveat we state up front. Two profiled models (Step-3.7-Flash, MedPsy-4B) were no longer reachable through their original APIs at revalidation time, so the complete-set revalidation and the control arm cover 12 of the 14 models. This is written into Methods and Limitations rather than hidden.
+
+4. Measurement hygiene. Parse-failure and token-cap rates per model are reported (0–1.8% and 0–68.5% respectively), protocols were frozen before revalidation, the previous "paired" t tests are corrected to one-sample tests, responsiveness is re-analyzed on correction rates instead of mechanically inflated raw gains, and category-level results are recomputed with denominators (one category now shows a small negative mean net gain).
+
+5. What we did not claim to have finished. Analyst label validation against clinicians, a neutral-prompt second-attempt run, and an expanded transfer matrix remain registered follow-ups and are listed as such.
+
+Item-level baseline, personalized, and control predictions and responses for both benchmarks are released, so every number in the revised text can be recomputed from the repository. All manuscript changes are tagged [new] in the accompanying text-format revision, and the point-by-point letter maps each reviewer comment to the specific change.
+
+We believe the revised evidence is more modest than the first submission's but considerably harder to dispute, and we hope the editorial board agrees it meets the bar for the changes requested.
+
+Sincerely,
+Zhehan Jiang and co-authors
